@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Archivo:400,500i,700');
+
 html {
   height: 100%;
 }
@@ -30,7 +32,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Archivo', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
