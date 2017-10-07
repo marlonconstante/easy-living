@@ -35,10 +35,10 @@ body {
     text-align: center;
     color: #ffffff;
     background: #fc4349;
-    background: -webkit-linear-gradient(#fc4349, #8f4352);
-    background: -o-linear-gradient(#fc4349, #8f4352);
-    background: -moz-linear-gradient(#fc4349, #8f4352);
-    background: linear-gradient(#fc4349, #8f4352);
+    background: -webkit-linear-gradient(135deg, #fc4349, #8f4352);
+    background: -o-linear-gradient(135deg, #fc4349, #8f4352);
+    background: -moz-linear-gradient(135deg, #fc4349, #8f4352);
+    background: linear-gradient(135deg, #fc4349, #8f4352);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
