@@ -1,6 +1,6 @@
 <template>
     <div class="inputText">
-        <input :type="type" :value="value" :placeholder="placeholder" @input="updateValue($event.target.value)">
+        <input :type="type" :value="value" :placeholder="placeholder" @input="onInput">
     </div>
 </template>
 
@@ -19,8 +19,8 @@ export default {
         }
     },
     methods: {
-        updateValue: function(value) {
-            this.$emit('input', value)
+        onInput: function(event) {
+            this.$emit('input', event.target.value)
         }
     }
 }
