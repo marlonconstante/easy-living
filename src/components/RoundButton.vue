@@ -1,6 +1,6 @@
 <template>
     <div class="roundButton">
-        <md-button class="md-fab" @click="onClick">
+        <md-button :class="[isInverted ? 'inverted' : '', 'md-fab']" @click="onClick">
             <md-icon class="md-size-2x">{{ iconClass }}</md-icon>
             <slot />
         </md-button>
@@ -13,6 +13,9 @@ export default {
     props: {
         iconClass: {
             type: String
+        },
+        isInverted: {
+            type: Boolean
         }
     },
     methods: {
@@ -38,5 +41,15 @@ export default {
 
 .roundButton .md-button.md-fab:hover {
     background-color: #2c3e50;
+}
+
+.roundButton .md-button.md-fab.inverted {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #2c3e50;
+    background-color: #d2434d;
+}
+
+.roundButton .md-button.md-fab.inverted:hover {
+    background-color: #d2434d;
 }
 </style>
