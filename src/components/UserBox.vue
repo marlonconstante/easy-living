@@ -1,7 +1,7 @@
 <template>
     <div class="userBox">
         <div class="info">
-            <label class="name">{{ name }}</label>
+            <span class="name">{{ name }}</span>
             <md-icon>account_circle</md-icon>
         </div>
         <div class="community">{{ community }}</div>
