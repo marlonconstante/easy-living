@@ -1,6 +1,6 @@
 <template>
     <div class="slogan">
-        <label>{{ message }}</label>
+        <span>{{ message }}</span>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-.slogan label {
+.slogan span {
     display: block;
     font-size: 22.6px;
     margin: 21.5px 0 60px 0;
