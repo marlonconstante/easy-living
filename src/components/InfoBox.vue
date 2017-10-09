@@ -1,8 +1,7 @@
 <template>
     <div class="infoBox">
-        <label class="title">{{ title }},</label>
-        <label class="name">{{ name }}.</label>
-        <label class="message">{{ message }}.</label>
+        <span class="title" v-html="title" />
+        <span class="message" v-html="message" />
     </div>
 </template>
 
@@ -13,9 +12,6 @@ export default {
         title: {
             type: String
         },
-        name: {
-            type: String
-        },
         message: {
             type: String
         }
@@ -24,18 +20,13 @@ export default {
 </script>
 
 <style scoped>
-.infoBox label.title,
-.infoBox label.name {
+.infoBox .title {
     text-align: center;
     font-size: 64px;
     color: #2c3e50;
 }
 
-.infoBox label.name {
-    font-weight: 700;
-}
-
-.infoBox label.message {
+.infoBox .message {
     display: block;
     margin-top: 20px;
     text-align: center;
