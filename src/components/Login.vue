@@ -5,15 +5,9 @@
             <slogan />
             <input-text type="email" v-model="user.email" placeholder="E-MAIL" />
             <input-text type="password" v-model="user.password" placeholder="PASSWORD" />
-            <md-button class="md-fab" @click="signIn">
-                <md-icon class="md-size-2x">arrow_forward</md-icon>
-            </md-button>
-            <div class="link">
-                <md-ink-ripple /> YOU DO NOT HAVE AN ACCOUNT?
-            </div>
-            <div class="link">
-                <md-ink-ripple /> FORGOT PASSWORD?
-            </div>
+            <round-button iconClass="arrow_forward" @click="signIn" />
+            <link-button>YOU DO NOT HAVE AN ACCOUNT?</link-button>
+            <link-button>FORGOT PASSWORD?</link-button>
         </div>
     </div>
 </template>
@@ -22,6 +16,8 @@
 import { auth } from '../services/firebase'
 import Slogan from '@/components/Slogan'
 import InputText from '@/components/InputText'
+import RoundButton from '@/components/RoundButton'
+import LinkButton from '@/components/LinkButton'
 
 export default {
     name: 'Login',
@@ -35,7 +31,9 @@ export default {
     },
     components: {
         Slogan,
-        InputText
+        InputText,
+        RoundButton,
+        LinkButton
     },
     methods: {
         register: function() {
@@ -73,27 +71,5 @@ export default {
 .box {
     margin: 60px auto;
     width: 400px;
-}
-
-.md-button.md-fab {
-    margin: 30px;
-    width: 91px;
-    height: 91px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.8), 0 8px 0 rgba(0, 0, 0, 0.1);
-    background-color: #2c3e50 !important;
-}
-
-.md-icon {
-    color: #cb434d;
-}
-
-.link {
-    cursor: pointer;
-    position: relative;
-    padding: 15px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
 }
 </style>
