@@ -1,6 +1,6 @@
 <template>
     <div class="inputTextArea">
-        <textarea :value="value" :placeholder="placeholder" @input="onInput" />
+        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" @input="onInput" />
     </div>
 </template>
 
@@ -8,6 +8,12 @@
 export default {
     name: 'InputTextArea',
     props: {
+        isTransparent: {
+            type: Boolean
+        },
+        isBig: {
+            type: Boolean
+        },
         value: {
             type: String
         },
@@ -38,8 +44,22 @@ export default {
     color: #fc4349;
 }
 
+.inputTextArea textarea.big {
+    height: 380px;
+}
+
+.inputTextArea textarea.transparent {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
 .inputTextArea textarea::placeholder {
     color: #fc4349;
+}
+
+.inputTextArea textarea.transparent::placeholder {
+    color: #ffffff;
 }
 
 .inputTextArea textarea::-moz-placeholder {
@@ -49,5 +69,9 @@ export default {
 .inputTextArea textarea:focus {
     outline: none;
     box-shadow: 0 0 30px #8a4447;
+}
+
+.inputTextArea textarea.transparent:focus {
+    box-shadow: 0 0 30px #ff8287;
 }
 </style>
