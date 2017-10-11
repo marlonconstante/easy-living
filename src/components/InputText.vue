@@ -32,11 +32,11 @@ export default {
     width: 100%;
     height: 64px;
     margin: 20px 0;
+    padding: 20px;
     border: none;
     border-radius: 6px;
     font-family: 'Archivo';
     font-size: 16px;
-    text-indent: 20px;
     color: #fc4349;
 }
 
