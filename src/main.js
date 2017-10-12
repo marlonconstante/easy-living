@@ -3,18 +3,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
-
 import App from './App'
 import router from './router'
 import firebase from './services/firebase'
 import mask from './mask'
+import material from './material'
 
 Vue.config.productionTip = false
-
 Vue.use(Vuex)
-Vue.use(VueMaterial)
 
 /* eslint-disable no-new */
 new Vue({
