@@ -21,7 +21,7 @@ import RoundButton from '@/components/RoundButton'
 import LinkButton from '@/components/LinkButton'
 
 export default {
-    name: 'Login',
+    name: 'Customer',
     data() {
         return {
             user: {
