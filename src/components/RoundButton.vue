@@ -19,7 +19,7 @@ export default {
         }
     },
     methods: {
-        onClick: function(event) {
+        onClick(event) {
             this.$emit('click', event)
         }
     }

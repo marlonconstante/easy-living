@@ -9,7 +9,7 @@
 export default {
     name: 'LinkButton',
     methods: {
-        onClick: function(event) {
+        onClick(event) {
             this.$emit('click', event)
         }
     }

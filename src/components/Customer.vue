@@ -40,13 +40,13 @@ export default {
         LinkButton
     },
     methods: {
-        save: function() {
+        save() {
             const customer = this.customer
             console.log(customer)
 
             this.login()
         },
-        login: function() {
+        login() {
             this.$router.push('/login')
         }
     }

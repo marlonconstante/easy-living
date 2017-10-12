@@ -36,7 +36,7 @@ export default {
         LinkButton
     },
     methods: {
-        register: function() {
+        register() {
             const user = this.user
             auth.createUserWithEmailAndPassword(user.email, user.password)
                 .then(function(data) {
@@ -47,7 +47,7 @@ export default {
                     console.log(error.message)
                 })
         },
-        signIn: function() {
+        signIn() {
             const user = this.user
             auth.signInWithEmailAndPassword(user.email, user.password)
                 .then(function(data) {
@@ -58,10 +58,10 @@ export default {
                     console.log(error.message)
                 })
         },
-        createAccount: function() {
+        createAccount() {
             this.$router.push('/customer')
         },
-        forgotPassword: function() {
+        forgotPassword() {
         }
     }
 }
