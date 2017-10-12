@@ -1,6 +1,7 @@
 <template>
     <div class="inputText">
         <input :type="type" :value="value" :placeholder="placeholder" v-mask="mask" @input="onInput">
+        <span v-if="mask && maskPlaceholder" class="mask-placeholder">{{ maskPlaceholder }}</span>
     </div>
 </template>
 
@@ -19,8 +20,10 @@ export default {
             type: String
         },
         mask: {
-            type: String,
-            default: ''
+            type: String
+        },
+        maskPlaceholder: {
+            type: String
         }
     },
     methods: {
@@ -32,6 +35,20 @@ export default {
 </script>
 
 <style scoped>
+.inputText {
+    position: relative;
+}
+
+.inputText .mask-placeholder {
+    position: absolute;
+    opacity: 0.3;
+    right: 20px;
+    top: 22px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
 .inputText input {
     display: block;
     width: 100%;
