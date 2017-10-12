@@ -3,10 +3,10 @@
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
-            <input-text v-model="user.name" placeholder="NAME" />
-            <input-text v-model="user.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" />
-            <input-text-area v-model="user.address" placeholder="ADDRESS" />
-            <input-text v-model="user.community" placeholder="COMMUNITY NAME" />
+            <input-text v-model="customer.name" placeholder="NAME" />
+            <input-text v-model="customer.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" />
+            <input-text-area v-model="customer.address" placeholder="ADDRESS" />
+            <input-text v-model="customer.community" placeholder="COMMUNITY NAME" />
             <round-button iconClass="arrow_forward" @click="save" />
             <link-button>I ALREADY HAVE AN ACCOUNT</link-button>
         </div>
@@ -24,7 +24,7 @@ export default {
     name: 'Customer',
     data() {
         return {
-            user: {
+            customer: {
                 name: '',
                 birthDate: '',
                 address: '',
@@ -41,8 +41,8 @@ export default {
     },
     methods: {
         save: function() {
-            const user = this.user
-            console.log(user)
+            const customer = this.customer
+            console.log(customer)
         }
     }
 }
