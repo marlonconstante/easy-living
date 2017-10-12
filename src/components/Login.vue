@@ -36,27 +36,29 @@ export default {
         LinkButton
     },
     methods: {
-        register() {
-            const user = this.user
-            auth.createUserWithEmailAndPassword(user.email, user.password)
-                .then(function(data) {
-                    console.log(auth.currentUser)
-                    user.email = ''
-                    user.password = ''
-                }).catch(function(error) {
-                    console.log(error.message)
-                })
+        async register() {
+            try {
+                const { uid, email } = await auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
+
+                console.log(`[register] UID: ${uid}\nE-MAIL: ${email}`)
+
+                this.user.email = ''
+                this.user.password = ''
+            } catch (error) {
+                console.log(error.message)
+            }
         },
-        signIn() {
-            const user = this.user
-            auth.signInWithEmailAndPassword(user.email, user.password)
-                .then(function(data) {
-                    console.log(auth.currentUser)
-                    user.email = ''
-                    user.password = ''
-                }).catch(function(error) {
-                    console.log(error.message)
-                })
+        async signIn() {
+            try {
+                const { uid, email } = await auth.signInWithEmailAndPassword(this.user.email, this.user.password)
+
+                console.log(`[signIn] UID: ${uid}\nE-MAIL: ${email}`)
+
+                this.user.email = ''
+                this.user.password = ''
+            } catch (error) {
+                console.log(error.message)
+            }
         },
         createAccount() {
             this.$router.push('/customer')
