@@ -1,6 +1,6 @@
 <template>
     <div class="inputText">
-        <input :type="type" :value="value" :placeholder="placeholder" @input="onInput">
+        <input :type="type" :value="value" :placeholder="placeholder" v-mask="mask" @input="onInput">
     </div>
 </template>
 
@@ -9,12 +9,16 @@ export default {
     name: 'InputText',
     props: {
         type: {
-            type: String
+            type: String,
+            default: 'text'
         },
         value: {
             type: String
         },
         placeholder: {
+            type: String
+        },
+        mask: {
             type: String
         }
     },
