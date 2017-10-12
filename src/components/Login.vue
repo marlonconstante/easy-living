@@ -6,8 +6,8 @@
             <input-text type="email" v-model="user.email" placeholder="E-MAIL" />
             <input-text type="password" v-model="user.password" placeholder="PASSWORD" />
             <round-button iconClass="arrow_forward" @click="signIn" />
-            <link-button>YOU DO NOT HAVE AN ACCOUNT?</link-button>
-            <link-button>FORGOT PASSWORD?</link-button>
+            <link-button @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
+            <link-button @click="forgotPassword">FORGOT PASSWORD?</link-button>
         </div>
     </div>
 </template>
@@ -57,6 +57,11 @@ export default {
                 }).catch(function(error) {
                     console.log(error.message)
                 })
+        },
+        createAccount: function() {
+            this.$router.push('/customer')
+        },
+        forgotPassword: function() {
         }
     }
 }

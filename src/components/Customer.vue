@@ -8,7 +8,7 @@
             <input-text-area v-model="customer.address" placeholder="ADDRESS" />
             <input-text v-model="customer.community" placeholder="COMMUNITY NAME" />
             <round-button iconClass="arrow_forward" @click="save" />
-            <link-button>I ALREADY HAVE AN ACCOUNT</link-button>
+            <link-button @click="login">I ALREADY HAVE AN ACCOUNT</link-button>
         </div>
     </div>
 </template>
@@ -43,6 +43,11 @@ export default {
         save: function() {
             const customer = this.customer
             console.log(customer)
+
+            this.login()
+        },
+        login: function() {
+            this.$router.push('/login')
         }
     }
 }
