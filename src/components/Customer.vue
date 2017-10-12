@@ -3,10 +3,10 @@
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
-            <input-text type="text" v-model="user.name" placeholder="NAME" />
-            <input-text type="date" v-model="user.birthDate" placeholder="DATE OF BIRTH" />
+            <input-text v-model="user.name" placeholder="NAME" />
+            <input-text mask="##/##/####" v-model="user.birthDate" placeholder="DATE OF BIRTH" />
             <input-text-area v-model="user.address" placeholder="ADDRESS" />
-            <input-text type="text" v-model="user.community" placeholder="COMMUNITY NAME" />
+            <input-text v-model="user.community" placeholder="COMMUNITY NAME" />
             <round-button iconClass="arrow_forward" @click="save" />
             <link-button>I ALREADY HAVE AN ACCOUNT</link-button>
         </div>
