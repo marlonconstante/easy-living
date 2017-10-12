@@ -19,7 +19,8 @@ export default {
             type: String
         },
         mask: {
-            type: String
+            type: String,
+            default: ''
         }
     },
     methods: {
