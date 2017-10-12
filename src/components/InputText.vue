@@ -1,6 +1,7 @@
 <template>
     <div class="inputText">
-        <input :type="type" :value="value" :placeholder="placeholder" v-mask="mask" @input="onInput">
+        <input v-if="mask" :type="type" :value="value" :placeholder="placeholder" v-mask="mask" @input="onInput">
+        <input v-else :type="type" :value="value" :placeholder="placeholder" @input="onInput">
         <span v-if="mask && maskPlaceholder" class="mask-placeholder">{{ maskPlaceholder }}</span>
     </div>
 </template>
