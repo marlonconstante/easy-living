@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login'
-import Customer from '@/components/Customer'
+import Login from '@/pages/Login'
+import Customer from '@/pages/Customer'
 
 Vue.use(Router)
 
