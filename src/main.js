@@ -7,9 +7,9 @@ import store from './store'
 import router from './router'
 
 import './services/firebase'
-import './toasted'
-import './mask'
-import './material'
+import './plugins/toasted'
+import './plugins/mask'
+import './plugins/material'
 
 Vue.config.productionTip = false
 
