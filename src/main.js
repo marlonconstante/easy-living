@@ -5,13 +5,14 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import router from './router'
-import firebase from './services/firebase'
-import mask from './mask'
-import material from './material'
+
+import './services/firebase'
+import './toasted'
+import './mask'
+import './material'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
     el: '#app',
     store,
