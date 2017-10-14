@@ -7,7 +7,7 @@
             <input-text v-model="customer.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" />
             <input-text-area v-model="customer.address" placeholder="ADDRESS" />
             <input-text v-model="customer.community" placeholder="COMMUNITY NAME" />
-            <round-button iconClass="arrow_forward" @click="save" />
+            <round-button iconClass="arrow_forward" @click="next" />
             <link-button @click="login">I ALREADY HAVE AN ACCOUNT</link-button>
         </div>
     </div>
@@ -40,14 +40,14 @@ export default {
         LinkButton
     },
     methods: {
-        save() {
-            const customer = this.customer
-            console.log(customer)
-
-            this.login()
+        next() {
+            this.$router.push({
+                name: 'login',
+                query: this.customer
+            })
         },
         login() {
-            this.$router.push('/login')
+            this.$router.push('login')
         }
     }
 }
