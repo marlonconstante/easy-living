@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { auth } from '../services/firebase'
+import Firebase from 'firebase'
 import Slogan from '@/components/Slogan'
 import InputText from '@/components/InputText'
 import RoundButton from '@/components/RoundButton'
@@ -36,28 +36,30 @@ export default {
         LinkButton
     },
     methods: {
+        clear() {
+            this.user.email = ''
+            this.user.password = ''
+        },
         async register() {
             try {
-                const { uid, email } = await auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
+                const { uid, email } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
 
                 console.log(`[register] UID: ${uid}\nE-MAIL: ${email}`)
 
-                this.user.email = ''
-                this.user.password = ''
+                this.clear()
             } catch (error) {
-                console.log(error.message)
+                this.$toasted.showError(error)
             }
         },
         async signIn() {
             try {
-                const { uid, email } = await auth.signInWithEmailAndPassword(this.user.email, this.user.password)
+                const { uid, email } = await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
 
                 console.log(`[signIn] UID: ${uid}\nE-MAIL: ${email}`)
 
-                this.user.email = ''
-                this.user.password = ''
+                this.clear()
             } catch (error) {
-                console.log(error.message)
+                this.$toasted.showError(error)
             }
         },
         createAccount() {
