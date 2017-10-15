@@ -5,9 +5,9 @@
             <slogan />
             <input-text type="email" v-model="user.email" placeholder="E-MAIL" />
             <input-text type="password" v-model="user.password" placeholder="PASSWORD" />
-            <round-button iconClass="arrow_forward" @click="signIn" />
-            <link-button @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
-            <link-button @click="forgotPassword">FORGOT PASSWORD?</link-button>
+            <round-button iconClass="arrow_forward" @click="next" />
+            <link-button v-if="!isNewAccount()" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
+            <link-button v-if="!isNewAccount()" @click="forgotPassword">FORGOT PASSWORD?</link-button>
         </div>
     </div>
 </template>
@@ -29,6 +29,11 @@ export default {
             }
         }
     },
+    props: {
+        customer: {
+            type: Object
+        }
+    },
     components: {
         Slogan,
         InputText,
@@ -40,11 +45,16 @@ export default {
             this.user.email = ''
             this.user.password = ''
         },
+        next() {
+            if (this.isNewAccount()) {
+                this.register()
+            } else {
+                this.signIn()
+            }
+        },
         async register() {
             try {
                 const { uid, email } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
-
-                console.log(`[register] UID: ${uid}\nE-MAIL: ${email}`)
 
                 this.clear()
             } catch (error) {
@@ -55,12 +65,13 @@ export default {
             try {
                 const { uid, email } = await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
 
-                console.log(`[signIn] UID: ${uid}\nE-MAIL: ${email}`)
-
                 this.clear()
             } catch (error) {
                 this.$toasted.showError(error)
             }
+        },
+        isNewAccount() {
+            return Object.keys(this.customer).length !== 0
         },
         createAccount() {
             this.$router.push('/customer')

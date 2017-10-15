@@ -10,7 +10,8 @@ export default new Router({
         {
             path: '/login',
             name: 'login',
-            component: Login
+            component: Login,
+            props: (route) => ({ customer: route.query })
         },
         {
             path: '/customer',
