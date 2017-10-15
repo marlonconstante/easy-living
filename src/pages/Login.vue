@@ -78,7 +78,7 @@ export default {
             return Object.keys(this.customer).length !== 0
         },
         createAccount() {
-            this.$router.push('/customer')
+            this.$router.push('customer')
         },
         forgotPassword() {
         }
