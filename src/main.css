@@ -35,6 +35,20 @@ body {
     width: 400px;
 }
 
+.box .roundButton {
+    padding: 15px;
+}
+
 .full-height {
     height: 100%;
+}
+
+.title {
+    font-size: 32px;
+    line-height: 35px;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin: 40px 0;
 }

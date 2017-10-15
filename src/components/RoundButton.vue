@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .roundButton .md-button.md-fab {
-    margin: 30px;
+    margin: 15px;
     width: 91px;
     height: 91px;
     border: 1px solid rgba(0, 0, 0, 0.4);
