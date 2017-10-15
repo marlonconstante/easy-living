@@ -40,6 +40,9 @@ export default {
         RoundButton,
         LinkButton
     },
+    firebase: {
+        customers: Firebase.database().ref('customers')
+    },
     methods: {
         clear() {
             this.user.email = ''
@@ -54,7 +57,8 @@ export default {
         },
         async register() {
             try {
-                const { uid, email } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
+                const { uid } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
+                this.$firebaseRefs.customers.child(uid).set(this.customer)
 
                 this.clear()
             } catch (error) {
@@ -63,7 +67,7 @@ export default {
         },
         async signIn() {
             try {
-                const { uid, email } = await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
+                const { uid } = await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
 
                 this.clear()
             } catch (error) {
