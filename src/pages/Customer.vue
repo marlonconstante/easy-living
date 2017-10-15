@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <md-layout class="full-height" md-vertical-align="center" md-align="center">
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
@@ -10,7 +10,7 @@
             <round-button iconClass="arrow_forward" @click="next" />
             <link-button @click="login">I ALREADY HAVE AN ACCOUNT</link-button>
         </div>
-    </div>
+    </md-layout>
 </template>
 
 <script>
@@ -53,14 +53,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.content {
-    display: table-cell;
-    vertical-align: middle;
-}
+<style>
 
-.box {
-    margin: 60px auto;
-    width: 400px;
-}
 </style>

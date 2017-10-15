@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <md-layout class="full-height" md-vertical-align="center" md-align="center">
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
@@ -9,7 +9,7 @@
             <link-button v-if="!isNewAccount()" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
             <link-button v-if="!isNewAccount()" @click="forgotPassword">FORGOT PASSWORD?</link-button>
         </div>
-    </div>
+    </md-layout>
 </template>
 
 <script>
@@ -86,14 +86,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.content {
-    display: table-cell;
-    vertical-align: middle;
-}
+<style>
 
-.box {
-    margin: 60px auto;
-    width: 400px;
-}
 </style>
