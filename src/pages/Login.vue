@@ -67,7 +67,7 @@ export default {
         },
         async signIn() {
             try {
-                const { uid } = await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
+                await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
 
                 this.clear()
             } catch (error) {
