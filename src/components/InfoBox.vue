@@ -20,6 +20,10 @@ export default {
 </script>
 
 <style scoped>
+.infoBox {
+    margin: 40px;
+}
+
 .infoBox .title {
     text-align: center;
     font-size: 64px;

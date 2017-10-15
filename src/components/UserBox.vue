@@ -29,6 +29,7 @@ export default {
 <style scoped>
 .userBox {
     width: 243px;
+    margin: 40px;
     font-size: 16px;
     text-align: right;
     color: #ffffff;
