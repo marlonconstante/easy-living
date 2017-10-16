@@ -30,6 +30,11 @@ body {
     background-attachment: fixed;
 }
 
+.content {
+    display: table-cell;
+    height: 100%;
+}
+
 .box {
     margin: 60px 0;
     width: 400px;
