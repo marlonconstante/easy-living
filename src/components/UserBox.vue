@@ -31,6 +31,8 @@ export default {
     width: 243px;
     margin: 40px;
     font-size: 16px;
+    line-height: 17px;
+    letter-spacing: 0.7px;
     text-align: right;
     color: #ffffff;
 }
@@ -49,7 +51,7 @@ export default {
     opacity: 0.8;
     font-weight: 500;
     font-style: italic;
-    margin: 13px 0 10px 0;
+    margin: 10px 0;
 }
 
 .userBox .address {
