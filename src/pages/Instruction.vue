@@ -39,11 +39,15 @@ export default {
 
 <style scoped>
 .box-instruction {
-    margin: 180px 0 80px 0;
+    margin: 152px 0 80px 0;
     width: 450px;
 }
 
 .box-instruction .inputTextArea {
-    margin: 10px 5px 65px 5px;
+    margin: 0 5px 65px 5px;
+}
+
+.box-instruction .subtitle {
+    margin-bottom: 46px;
 }
 </style>
