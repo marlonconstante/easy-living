@@ -1,7 +1,7 @@
 <template>
     <div class="inputText">
-        <input v-if="mask" :type="type" :value="value" :placeholder="placeholder" :name="fieldName" v-mask="mask" @input="onInput">
-        <input v-else :type="type" :value="value" :placeholder="placeholder" :name="fieldName" @input="onInput">
+        <input v-if="mask" :type="type" :value="value" :placeholder="placeholder" :name="fieldName" v-mask="mask" v-validate="validate" @input="onInput">
+        <input v-else :type="type" :value="value" :placeholder="placeholder" :name="fieldName" v-validate="validate" @input="onInput">
         <span v-if="mask && maskPlaceholder" class="mask-placeholder">{{ maskPlaceholder }}</span>
     </div>
 </template>
@@ -28,6 +28,10 @@ export default {
         },
         maskPlaceholder: {
             type: String
+        },
+        validate: {
+            type: [String, Object],
+            default: ''
         }
     },
     computed: {
