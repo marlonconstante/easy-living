@@ -42,6 +42,7 @@ export default {
 <style scoped>
 .gridSelect {
     margin: 5px;
+    padding: 70px 0 55px 0;
     justify-content: center;
 }
 </style>
