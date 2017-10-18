@@ -1,6 +1,6 @@
 <template>
     <div class="inputTextArea">
-        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="name" @input="onInput" />
+        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" @input="onInput" />
     </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
         },
         name: {
             type: String
+        }
+    },
+    computed: {
+        fieldName() {
+            return (this.name || this.placeholder).toLowerCase()
         }
     },
     methods: {
