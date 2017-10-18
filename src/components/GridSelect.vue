@@ -3,6 +3,9 @@
         <div v-for="item in value">
             <select-box :value="item" :fieldName="fieldName" @selectedValue="onSelectedValue" @unselectedValue="onUnselectedValue" />
         </div>
+        <div v-if="isLoading">
+            <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
+        </div>
     </md-layout>
 </template>
 
@@ -14,11 +17,6 @@ export default {
     components: {
         SelectBox
     },
-    data() {
-        return {
-            selectedValues: []
-        }
-    },
     props: {
         fieldName: {
             type: String
@@ -26,6 +24,17 @@ export default {
         value: {
             type: Array,
             required: true
+        },
+        selectedValues: {
+            type: Array,
+            default() {
+                return []
+            }
+        }
+    },
+    computed: {
+        isLoading() {
+            return this.value.length == 0
         }
     },
     methods: {
