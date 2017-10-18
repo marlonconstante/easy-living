@@ -1,6 +1,6 @@
 <template>
     <div class="inputTextArea">
-        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" @input="onInput" />
+        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="name" @input="onInput" />
     </div>
 </template>
 
@@ -18,6 +18,9 @@ export default {
             type: String
         },
         placeholder: {
+            type: String
+        },
+        name: {
             type: String
         }
     },
