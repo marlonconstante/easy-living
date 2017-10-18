@@ -1,6 +1,6 @@
 <template>
     <div class="inputTextArea">
-        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" @input="onInput" />
+        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" v-validate="validate" @input="onInput" />
     </div>
 </template>
 
@@ -22,6 +22,10 @@ export default {
         },
         name: {
             type: String
+        },
+        validate: {
+            type: [String, Object],
+            default: ''
         }
     },
     computed: {
