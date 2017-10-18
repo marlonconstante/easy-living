@@ -4,6 +4,7 @@ import Login from '@/pages/Login'
 import Customer from '@/pages/Customer'
 import Welcome from '@/pages/Welcome'
 import Instruction from '@/pages/Instruction'
+import Stop from '@/pages/Stop'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
             path: '/instruction',
             name: 'instruction',
             component: Instruction
+        },
+        {
+            path: '/stop',
+            name: 'stop',
+            component: Stop
         }
     ]
 })
