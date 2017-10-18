@@ -5,6 +5,7 @@ import './main.css'
 import './plugins/material'
 import './plugins/toasted'
 import './plugins/mask'
+import './plugins/validate'
 import './services/firebase'
 
 import Vue from 'vue'
