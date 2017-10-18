@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-.roundButton .md-button.md-fab {
+.roundButton .md-theme-default.md-button.md-fab {
     margin: 15px;
     width: 91px;
     height: 91px;
@@ -39,17 +39,17 @@ export default {
     background-color: #2c3e50;
 }
 
-.roundButton .md-button.md-fab:hover {
+.roundButton .md-theme-default.md-button.md-fab:hover {
     background-color: #2c3e50;
 }
 
-.roundButton .md-button.md-fab.inverted {
+.roundButton .md-theme-default.md-button.md-fab.inverted {
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: #2c3e50;
     background-color: #d2434d;
 }
 
-.roundButton .md-button.md-fab.inverted:hover {
+.roundButton .md-theme-default.md-button.md-fab.inverted:hover {
     background-color: #d2434d;
 }
 </style>
