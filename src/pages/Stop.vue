@@ -5,8 +5,8 @@
         <md-layout class="full-height" md-vertical-align="center" md-align="center">
             <div class="box-stop">
                 <div class="title">Where do you need us to stop?</div>
-                <grid-select v-model="stores" fieldName="name" />
-                <round-button>OK</round-button>
+                <grid-select v-model="stores" fieldName="name" :selectedValues="selectedStores" />
+                <round-button :disabled="!isSelectedStore">OK</round-button>
             </div>
         </md-layout>
     </div>
@@ -24,6 +24,16 @@ export default {
         HeaderBar,
         GridSelect,
         RoundButton
+    },
+    data() {
+        return {
+            selectedStores: []
+        }
+    },
+    computed: {
+        isSelectedStore() {
+            return this.selectedStores.length > 0
+        }
     },
     beforeCreate() {
         const storesRef = Firebase.database().ref('stores')
