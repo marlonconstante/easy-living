@@ -1,6 +1,7 @@
 <template>
     <div class="inputTextArea">
-        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" v-validate="validate" @input="onInput" />
+        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" v-validate="validation" @input="onInput" />
+        <div v-if="errors.has(fieldName)" class="validation-error">{{ errors.first(fieldName) }}</div>
     </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
         name: {
             type: String
         },
-        validate: {
+        validation: {
             type: [String, Object],
             default: ''
         }
@@ -42,6 +43,14 @@ export default {
 </script>
 
 <style scoped>
+.inputTextArea .validation-error {
+    opacity: 0.8;
+    margin: -10px 10px 10px 10px;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: end;
+}
+
 .inputTextArea textarea {
     display: block;
     resize: none;
