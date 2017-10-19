@@ -49,31 +49,27 @@ export default {
             this.user.email = ''
             this.user.password = ''
         },
-        next() {
-            if (this.isNewAccount()) {
-                this.register()
-            } else {
-                this.signIn()
+        async next() {
+            try {
+                if (await this.$validator.validateAll()) {
+                    if (this.isNewAccount()) {
+                        await this.register()
+                    } else {
+                        await this.signIn()
+                    }
+
+                    this.clear()
+                }
+            } catch (error) {
+                this.$toasted.showError(error)
             }
         },
         async register() {
-            try {
-                const { uid } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
-                this.$firebaseRefs.customers.child(uid).set(this.customer)
-
-                this.clear()
-            } catch (error) {
-                this.$toasted.showError(error)
-            }
+            const { uid } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
+            this.$firebaseRefs.customers.child(uid).set(this.customer)
         },
-        async signIn() {
-            try {
-                await Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
-
-                this.clear()
-            } catch (error) {
-                this.$toasted.showError(error)
-            }
+        signIn() {
+            return Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
         },
         isNewAccount() {
             return Object.keys(this.customer).length !== 0
