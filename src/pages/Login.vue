@@ -21,6 +21,7 @@ import LinkButton from '@/components/LinkButton'
 
 export default {
     name: 'Login',
+    inject: ['$validator'],
     data() {
         return {
             user: {

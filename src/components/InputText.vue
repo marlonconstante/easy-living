@@ -10,6 +10,7 @@
 <script>
 export default {
     name: 'InputText',
+    inject: ['$validator'],
     props: {
         type: {
             type: String,

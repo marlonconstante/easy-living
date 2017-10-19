@@ -22,6 +22,7 @@ import LinkButton from '@/components/LinkButton'
 
 export default {
     name: 'Customer',
+    inject: ['$validator'],
     data() {
         return {
             customer: {

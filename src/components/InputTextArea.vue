@@ -8,6 +8,7 @@
 <script>
 export default {
     name: 'InputTextArea',
+    inject: ['$validator'],
     props: {
         isTransparent: {
             type: Boolean
