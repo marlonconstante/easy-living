@@ -45,10 +45,6 @@ export default {
         customers: Firebase.database().ref('customers')
     },
     methods: {
-        clear() {
-            this.user.email = ''
-            this.user.password = ''
-        },
         async next() {
             try {
                 if (await this.$validator.validateAll()) {
@@ -57,8 +53,6 @@ export default {
                     } else {
                         await this.signIn()
                     }
-
-                    this.clear()
                 }
             } catch (error) {
                 this.$toasted.showError(error)
