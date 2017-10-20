@@ -4,7 +4,7 @@
             <img src="../assets/logo.svg">
             <slogan />
             <input-text v-model="customer.name" placeholder="NAME" validation="required|alpha_spaces" />
-            <input-text v-model="customer.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" />
+            <input-text v-model="customer.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" validation="required|date_format:MM/DD/YYYY" />
             <input-text-area v-model="customer.address" placeholder="ADDRESS" />
             <input-text v-model="customer.community" placeholder="COMMUNITY NAME" />
             <round-button iconClass="arrow_forward" @click="next" />
