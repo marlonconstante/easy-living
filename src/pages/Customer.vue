@@ -41,11 +41,17 @@ export default {
         LinkButton
     },
     methods: {
-        next() {
-            this.$router.push({
-                name: 'login',
-                query: this.customer
-            })
+        async next() {
+            try {
+                if (await this.$validator.validateAll()) {
+                    this.$router.push({
+                        name: 'login',
+                        query: this.customer
+                    })
+                }
+            } catch (error) {
+                this.$toasted.showError(error)
+            }
         },
         login() {
             this.$router.push('login')
