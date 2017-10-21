@@ -18,13 +18,7 @@ export default {
     },
     mutations: {
         [SET_NEW_USER](state, payload) {
-            const { name, birthDate, address, community } = payload
-            state.newUser = {
-                name,
-                birthDate,
-                address,
-                community
-            }
+            state.newUser = payload
         },
         [REGISTER_NEW_USER](state, payload) {
 
