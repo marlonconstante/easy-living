@@ -1,5 +1,5 @@
 <template>
-    <div tabindex="0" class="linkButton" @keyup.enter="onClick" @keyup.space="onClick" @click="onClick">
+    <div :tabindex="isLoading ? -1 : 0" :class="[isLoading ? 'loading' : '', 'linkButton']" @keyup.enter="onClick" @keyup.space="onClick" @click="onClick">
         <md-ink-ripple />
         <slot />
     </div>
@@ -8,6 +8,11 @@
 <script>
 export default {
     name: 'LinkButton',
+    props: {
+        isLoading: {
+            type: Boolean
+        }
+    },
     methods: {
         onClick(event) {
             this.$emit('click', event)
@@ -28,7 +33,22 @@ export default {
 }
 
 .linkButton:hover,
-.linkButton:focus {
+.linkButton:focus,
+.linkButton.loading {
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.linkButton.loading {
+    pointer-events: none;
+    animation: fadeIn 1s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0.25;
+    }
 }
 </style>
