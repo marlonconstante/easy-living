@@ -95,6 +95,6 @@ export default {
 
 .inputText input:focus {
     outline: none;
-    box-shadow: 0 0 30px #8a4447;
+    box-shadow: 0 0 40px #8a4447;
 }
 </style>
