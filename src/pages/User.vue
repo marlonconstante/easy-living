@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Slogan from '@/components/Slogan'
 import InputText from '@/components/InputText'
 import InputTextArea from '@/components/InputTextArea'
@@ -48,10 +49,12 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['setNewUser']),
         async next() {
             try {
                 this.$startLoading(SET_NEW_USER)
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
+                    this.setNewUser(this.user)
                     this.login()
                 }
             } catch (error) {
