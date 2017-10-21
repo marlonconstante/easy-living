@@ -90,10 +90,10 @@ export default {
 
 .inputTextArea textarea:focus {
     outline: none;
-    box-shadow: 0 0 30px #8a4447;
+    box-shadow: 0 0 40px #8a4447;
 }
 
 .inputTextArea textarea.transparent:focus {
-    box-shadow: 0 0 30px #ff8287;
+    box-shadow: 0 0 40px #ff8287;
 }
 </style>
