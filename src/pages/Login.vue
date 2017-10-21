@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import Firebase from 'firebase'
 import Slogan from '@/components/Slogan'
 import InputText from '@/components/InputText'
 import RoundButton from '@/components/RoundButton'
@@ -30,46 +29,29 @@ export default {
             }
         }
     },
-    props: {
-        customer: {
-            type: Object
-        }
-    },
     components: {
         Slogan,
         InputText,
         RoundButton,
         LinkButton
     },
-    firebase: {
-        customers: Firebase.database().ref('customers')
-    },
     methods: {
         async next() {
             try {
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
                     if (this.isNewAccount()) {
-                        await this.register()
                     } else {
-                        await this.signIn()
                     }
                 }
             } catch (error) {
                 this.$toasted.showError(error)
             }
         },
-        async register() {
-            const { uid } = await Firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
-            this.$firebaseRefs.customers.child(uid).set(this.customer)
-        },
-        signIn() {
-            return Firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
-        },
         isNewAccount() {
-            return Object.keys(this.customer).length !== 0
+            return false
         },
         createAccount() {
-            this.$router.push('customer')
+            this.$router.push('user')
         },
         forgotPassword() {
         }
