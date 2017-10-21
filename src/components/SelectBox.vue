@@ -1,5 +1,5 @@
 <template>
-    <div :class="[isSelected ? 'active' : '', 'selectBox']" @click="onClick">
+    <div tabindex="0" :class="[isSelected ? 'active' : '', 'selectBox']" @keyup.enter="onClick" @keyup.space="onClick" @click="onClick">
         {{ labelValue }}
         <div class="circle" />
     </div>
@@ -45,6 +45,7 @@ export default {
     position: relative;
     cursor: pointer;
     background: transparent;
+    outline: none;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
     width: 440px;
@@ -58,6 +59,10 @@ export default {
 }
 
 .selectBox:hover,
+.selectBox:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
 .selectBox.active {
     background-color: rgba(255, 255, 255, 0.1);
 }
