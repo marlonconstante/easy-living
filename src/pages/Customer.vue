@@ -43,7 +43,7 @@ export default {
     methods: {
         async next() {
             try {
-                if (await this.$validator.validateAll()) {
+                if (await this.$utils.validateAll(this.$el, this.$validator)) {
                     this.$router.push({
                         name: 'login',
                         query: this.customer

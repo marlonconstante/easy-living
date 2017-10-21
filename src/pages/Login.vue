@@ -47,7 +47,7 @@ export default {
     methods: {
         async next() {
             try {
-                if (await this.$validator.validateAll()) {
+                if (await this.$utils.validateAll(this.$el, this.$validator)) {
                     if (this.isNewAccount()) {
                         await this.register()
                     } else {
