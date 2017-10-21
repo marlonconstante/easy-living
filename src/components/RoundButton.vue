@@ -1,9 +1,14 @@
 <template>
     <div class="roundButton">
-        <md-button :class="[isInverted ? 'inverted' : '', 'md-fab']" :disabled="disabled" @click="onClick">
-            <md-icon class="md-size-2x">{{ iconClass }}</md-icon>
-            <slot />
-        </md-button>
+        <div class="content">
+            <md-button :class="[isInverted ? 'inverted' : '', 'md-fab']" :disabled="disabled || isLoading" @click="onClick">
+                <md-icon class="md-size-2x">{{ iconClass }}</md-icon>
+                <slot />
+            </md-button>
+            <div class="spinner" v-if="isLoading">
+                <md-spinner :md-size="91" :md-stroke="1" md-indeterminate />
+            </div>
+        </div>
     </div>
 </template>
 
@@ -19,6 +24,9 @@ export default {
         },
         isInverted: {
             type: Boolean
+        },
+        isLoading: {
+            type: Boolean
         }
     },
     methods: {
@@ -30,8 +38,20 @@ export default {
 </script>
 
 <style scoped>
-.roundButton .md-theme-default.md-button.md-fab {
+.roundButton .content {
+    position: relative;
+    display: inline-block;
     margin: 15px;
+}
+
+.roundButton .content .spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.roundButton .content .md-theme-default.md-button.md-fab {
+    margin: 0;
     width: 91px;
     height: 91px;
     border: 1px solid rgba(0, 0, 0, 0.4);
@@ -42,31 +62,31 @@ export default {
     background-color: #2c3e50;
 }
 
-.roundButton .md-theme-default.md-button.md-fab[disabled] {
+.roundButton .content .md-theme-default.md-button.md-fab[disabled] {
     opacity: 0.5;
 }
 
-.roundButton .md-theme-default.md-button.md-fab:hover {
+.roundButton .content .md-theme-default.md-button.md-fab:hover {
     background-color: #2c3e50;
 }
 
-.roundButton .md-theme-default.md-button.md-fab:hover,
-.roundButton .md-theme-default.md-button.md-fab:focus {
+.roundButton .content .md-theme-default.md-button.md-fab:hover,
+.roundButton .content .md-theme-default.md-button.md-fab:focus {
     border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
-.roundButton .md-theme-default.md-button.md-fab.inverted {
+.roundButton .content .md-theme-default.md-button.md-fab.inverted {
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: #2c3e50;
     background-color: #d2434d;
 }
 
-.roundButton .md-theme-default.md-button.md-fab.inverted:hover {
+.roundButton .content .md-theme-default.md-button.md-fab.inverted:hover {
     background-color: #d2434d;
 }
 
-.roundButton .md-theme-default.md-button.md-fab.inverted:hover,
-.roundButton .md-theme-default.md-button.md-fab.inverted:focus {
+.roundButton .content .md-theme-default.md-button.md-fab.inverted:hover,
+.roundButton .content .md-theme-default.md-button.md-fab.inverted:focus {
     border: 2px solid rgba(0, 0, 0, 0.4);
 }
 </style>
