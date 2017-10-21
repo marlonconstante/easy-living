@@ -7,6 +7,7 @@ import './plugins/toasted'
 import './plugins/mask'
 import './plugins/validate'
 import './services/firebase'
+import './utils'
 
 import Vue from 'vue'
 import App from './App'
