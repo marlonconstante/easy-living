@@ -3,10 +3,10 @@
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
-            <input-text v-model="customer.name" placeholder="NAME" validation="required|alpha_spaces" />
-            <input-text v-model="customer.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" validation="required|date_format:MM/DD/YYYY" />
-            <input-text-area v-model="customer.address" placeholder="ADDRESS" validation="required" />
-            <input-text v-model="customer.community" placeholder="COMMUNITY NAME" validation="required" />
+            <input-text v-model="user.name" placeholder="NAME" validation="required|alpha_spaces" />
+            <input-text v-model="user.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" validation="required|date_format:MM/DD/YYYY" />
+            <input-text-area v-model="user.address" placeholder="ADDRESS" validation="required" />
+            <input-text v-model="user.community" placeholder="COMMUNITY NAME" validation="required" />
             <round-button iconClass="arrow_forward" @click="next" />
             <link-button @click="login">I ALREADY HAVE AN ACCOUNT</link-button>
         </div>
@@ -21,11 +21,11 @@ import RoundButton from '@/components/RoundButton'
 import LinkButton from '@/components/LinkButton'
 
 export default {
-    name: 'Customer',
+    name: 'User',
     inject: ['$validator'],
     data() {
         return {
-            customer: {
+            user: {
                 name: '',
                 birthDate: '',
                 address: '',
@@ -44,10 +44,7 @@ export default {
         async next() {
             try {
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
-                    this.$router.push({
-                        name: 'login',
-                        query: this.customer
-                    })
+                    this.login()
                 }
             } catch (error) {
                 this.$toasted.showError(error)

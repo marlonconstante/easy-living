@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/pages/Login'
-import Customer from '@/pages/Customer'
+import User from '@/pages/User'
 import Welcome from '@/pages/Welcome'
 import Instruction from '@/pages/Instruction'
 import Stop from '@/pages/Stop'
@@ -13,13 +13,12 @@ export default new Router({
         {
             path: '/login',
             name: 'login',
-            component: Login,
-            props: (route) => ({ customer: route.query })
+            component: Login
         },
         {
-            path: '/customer',
-            name: 'customer',
-            component: Customer
+            path: '/user',
+            name: 'user',
+            component: User
         },
         {
             path: '/welcome',
