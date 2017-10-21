@@ -1,10 +1,10 @@
 <template>
     <md-layout class="gridSelect">
-        <div v-for="item in value">
-            <select-box :value="item" :fieldName="fieldName" @selectedValue="onSelectedValue" @unselectedValue="onUnselectedValue" />
-        </div>
         <div v-if="isLoading">
             <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
+        </div>
+        <div v-else v-for="item in value">
+            <select-box :value="item" :fieldName="fieldName" @selectedValue="onSelectedValue" @unselectedValue="onUnselectedValue" />
         </div>
     </md-layout>
 </template>
@@ -30,11 +30,9 @@ export default {
             default() {
                 return []
             }
-        }
-    },
-    computed: {
-        isLoading() {
-            return this.value.length == 0
+        },
+        isLoading: {
+            type: Boolean
         }
     },
     methods: {
