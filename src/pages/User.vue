@@ -28,12 +28,7 @@ export default {
     inject: ['$validator'],
     data() {
         return {
-            user: {
-                name: '',
-                birthDate: '',
-                address: '',
-                community: ''
-            }
+            user: Object.assign({}, this.$store.state.auth.newUser)
         }
     },
     components: {
@@ -49,13 +44,13 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['setNewUser']),
+        ...mapActions(['clearNewUser', 'setNewUser']),
         async next() {
             try {
                 this.$startLoading(SET_NEW_USER)
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
                     this.setNewUser(this.user)
-                    this.login()
+                    this.$router.push('welcome')
                 }
             } catch (error) {
                 this.$toasted.showError(error)
@@ -64,6 +59,7 @@ export default {
             }
         },
         login() {
+            this.clearNewUser()
             this.$router.push('login')
         }
     }
