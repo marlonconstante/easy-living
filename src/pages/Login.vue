@@ -3,8 +3,8 @@
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
-            <input-text type="email" v-model="user.email" placeholder="E-MAIL" validation="required|email" />
-            <input-text type="password" v-model="user.password" placeholder="PASSWORD" validation="required|min:6" />
+            <input-text type="email" v-model="credentials.email" placeholder="E-MAIL" validation="required|email" />
+            <input-text type="password" v-model="credentials.password" placeholder="PASSWORD" validation="required|min:6" />
             <round-button iconClass="arrow_forward" :isLoading="isLoading" @click="next" />
             <link-button v-if="!isNewAccount" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
             <link-button v-if="!isNewAccount" @click="forgotPassword">FORGOT PASSWORD?</link-button>
@@ -24,7 +24,7 @@ export default {
     inject: ['$validator'],
     data() {
         return {
-            user: {
+            credentials: {
                 email: '',
                 password: ''
             }
@@ -43,13 +43,15 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['clearNewUser']),
+        ...mapActions(['registerNewUser', 'loginUser']),
         async next() {
             try {
                 this.$startLoading(this.$options.name)
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
                     if (this.isNewAccount) {
+                        await this.registerNewUser(this.credentials)
                     } else {
+                        await this.loginUser(this.credentials)
                     }
                 }
             } catch (error) {
@@ -59,7 +61,6 @@ export default {
             }
         },
         createAccount() {
-            this.clearNewUser()
             this.$router.push('user')
         },
         forgotPassword() {
