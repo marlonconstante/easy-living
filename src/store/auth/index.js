@@ -64,7 +64,7 @@ export default {
         },
         loadUser({ commit }) {
             return new Promise((resolve, reject) => {
-                auth.onAuthStateChanged((user) => {
+                auth.onAuthStateChanged(async (user) => {
                     if (user) {
                         commit(SET_CURRENT_USER, await getUserData(user))
                     } else {
