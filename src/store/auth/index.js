@@ -62,6 +62,18 @@ export default {
             const user = await auth.signInWithEmailAndPassword(email, password)
             commit(SET_CURRENT_USER, await getUserData(user))
         },
+        loadUser({ commit }) {
+            return new Promise((resolve, reject) => {
+                auth.onAuthStateChanged((user) => {
+                    if (user) {
+                        commit(SET_CURRENT_USER, await getUserData(user))
+                    } else {
+                        commit(SET_CURRENT_USER, null)
+                    }
+                    resolve()
+                })
+            })
+        },
         async logoutUser({ commit }) {
             await auth.signOut()
             commit(SET_CURRENT_USER, null)
