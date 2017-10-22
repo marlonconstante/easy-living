@@ -85,6 +85,14 @@ export default {
     color: #fc4349;
 }
 
+.inputText input[type=email] { 
+    text-transform: lowercase;
+}
+
+.inputText input[type=email]::placeholder { 
+    text-transform: none;
+}
+
 .inputText input::placeholder {
     color: #fc4349;
 }
