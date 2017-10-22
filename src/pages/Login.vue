@@ -6,13 +6,14 @@
             <input-text type="email" v-model="user.email" placeholder="E-MAIL" validation="required|email" />
             <input-text type="password" v-model="user.password" placeholder="PASSWORD" validation="required|min:6" />
             <round-button iconClass="arrow_forward" @click="next" />
-            <link-button v-if="!isNewAccount()" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
-            <link-button v-if="!isNewAccount()" @click="forgotPassword">FORGOT PASSWORD?</link-button>
+            <link-button v-if="!isNewAccount" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
+            <link-button v-if="!isNewAccount" @click="forgotPassword">FORGOT PASSWORD?</link-button>
         </div>
     </md-layout>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import Slogan from '@/components/Slogan'
 import InputText from '@/components/InputText'
 import RoundButton from '@/components/RoundButton'
@@ -35,11 +36,15 @@ export default {
         RoundButton,
         LinkButton
     },
+    computed: {
+        ...mapGetters(['isNewAccount'])
+    },
     methods: {
+        ...mapActions(['clearNewUser']),
         async next() {
             try {
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
-                    if (this.isNewAccount()) {
+                    if (this.isNewAccount) {
                     } else {
                     }
                 }
@@ -47,10 +52,8 @@ export default {
                 this.$toasted.showError(error)
             }
         },
-        isNewAccount() {
-            return false
-        },
         createAccount() {
+            this.clearNewUser()
             this.$router.push('user')
         },
         forgotPassword() {
