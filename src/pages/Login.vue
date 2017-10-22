@@ -5,7 +5,7 @@
             <slogan />
             <input-text type="email" v-model="user.email" placeholder="E-MAIL" validation="required|email" />
             <input-text type="password" v-model="user.password" placeholder="PASSWORD" validation="required|min:6" />
-            <round-button iconClass="arrow_forward" @click="next" />
+            <round-button iconClass="arrow_forward" :isLoading="isLoading" @click="next" />
             <link-button v-if="!isNewAccount" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
             <link-button v-if="!isNewAccount" @click="forgotPassword">FORGOT PASSWORD?</link-button>
         </div>
@@ -37,12 +37,16 @@ export default {
         LinkButton
     },
     computed: {
-        ...mapGetters(['isNewAccount'])
+        ...mapGetters(['isNewAccount']),
+        isLoading() {
+            return this.$isLoading(this.$options.name)
+        }
     },
     methods: {
         ...mapActions(['clearNewUser']),
         async next() {
             try {
+                this.$startLoading(this.$options.name)
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
                     if (this.isNewAccount) {
                     } else {
@@ -50,6 +54,8 @@ export default {
                 }
             } catch (error) {
                 this.$toasted.showError(error)
+            } finally {
+                this.$endLoading(this.$options.name)
             }
         },
         createAccount() {
