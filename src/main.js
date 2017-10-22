@@ -16,6 +16,20 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+Vue.directive('focus', {
+    inserted(el) {
+        if (el.classList.contains('inputText')) {
+            el.querySelector('input').focus()
+        } else if (el.classList.contains('inputTextArea')) {
+            el.querySelector('textarea').focus()
+        } else if (el.classList.contains('roundButton')) {
+            el.querySelector('button').focus()
+        } else {
+            el.focus()
+        }
+    }
+})
+
 new Vue({
     el: '#app',
     store,

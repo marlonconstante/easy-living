@@ -3,7 +3,7 @@
         <div class="box">
             <img src="../assets/logo.svg">
             <slogan />
-            <input-text v-model="user.name" placeholder="NAME" validation="required|alpha_spaces" />
+            <input-text v-focus v-model="user.name" placeholder="NAME" validation="required|alpha_spaces" />
             <input-text v-model="user.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" validation="required|date_format:MM/DD/YYYY" />
             <input-text-area v-model="user.address" placeholder="ADDRESS" validation="required" />
             <input-text v-model="user.community" placeholder="COMMUNITY NAME" validation="required" />
