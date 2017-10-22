@@ -1,5 +1,10 @@
+import Firebase from 'firebase'
+
 const SET_NEW_USER = 'SET_NEW_USER'
 const SET_CURRENT_USER = 'SET_CURRENT_USER'
+
+const db = Firebase.database()
+const auth = Firebase.auth()
 
 const emptyUser = {
     name: '',
@@ -8,7 +13,16 @@ const emptyUser = {
     community: ''
 }
 
-import Firebase from 'firebase'
+const setUserData = async (user, data) => {
+    const { uid } = user
+    await db.ref(`users/${uid}`).set(data)
+}
+
+const getUserData = async (user) => {
+    const { uid, email } = user
+    const snapshot = await db.ref(`users/${uid}`).once('value')
+    return Object.assign({}, { uid, email }, snapshot.val())
+}
 
 export default {
     state: {
@@ -39,22 +53,17 @@ export default {
             commit(SET_NEW_USER, user)
         },
         async registerNewUser({ commit, state }, { email, password }) {
-            const { uid } = await Firebase.auth().createUserWithEmailAndPassword(email, password)
-            await Firebase.database().ref(`users/${uid}`).set(state.newUser)
-
-            const registeredUser = Object.assign({}, { uid, email }, state.newUser)
+            const user = await auth.createUserWithEmailAndPassword(email, password)
+            await setUserData(user, state.newUser)
             commit(SET_NEW_USER, emptyUser)
-            commit(SET_CURRENT_USER, registeredUser)
+            commit(SET_CURRENT_USER, await getUserData(user))
         },
         async loginUser({ commit }, { email, password }) {
-            const { uid } = await Firebase.auth().signInWithEmailAndPassword(email, password)
-            const snapshot = await Firebase.database().ref(`users/${uid}`).once('value')
-
-            const loggedUser = Object.assign({}, { uid, email }, snapshot.val())
-            commit(SET_CURRENT_USER, loggedUser)
+            const user = await auth.signInWithEmailAndPassword(email, password)
+            commit(SET_CURRENT_USER, await getUserData(user))
         },
         async logoutUser({ commit }) {
-            await Firebase.auth().signOut()
+            await auth.signOut()
             commit(SET_CURRENT_USER, null)
         }
     }
