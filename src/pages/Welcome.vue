@@ -19,6 +19,11 @@ export default {
         HeaderBar,
         InfoBox
     },
+    created() {
+        setTimeout(() => {
+            this.$router.push('stop')
+        }, 2000)
+    },
     computed: {
         ...mapGetters('auth', ['isLoggedUser']),
         ...mapState('auth', ['newUser', 'currentUser']),
