@@ -5,18 +5,25 @@
         </md-layout>
 
         <md-layout md-align="end">
-            <user-box name="Rony Hanksfield" community="Community Name" address="1855 Broadway (at 61st Street) New York, NY 10023" />
+            <user-box :name="user.name" :community="user.community" :address="user.address" />
         </md-layout>
     </md-layout>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import UserBox from '@/components/UserBox'
 
 export default {
     name: 'HeaderBar',
     components: {
         UserBox
+    },
+    computed: {
+        ...mapState('auth', ['newUser', 'currentUser']),
+        user() {
+            return (this.currentUser || this.newUser)
+        }
     }
 }
 </script>
