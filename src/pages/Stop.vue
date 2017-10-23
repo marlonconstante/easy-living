@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import Firebase from 'firebase'
 import HeaderBar from '@/components/HeaderBar'
 import GridSelect from '@/components/GridSelect'
@@ -28,11 +28,17 @@ export default {
     },
     data() {
         return {
-            stores: [],
-            selectedStores: this.$store.state.delivery.stores
+            selectedStores: [...this.$store.state.delivery.selectedStores]
+        }
+    },
+    async created() {
+        if (!this.isLoadedStores) {
+            await this.loadStores()
         }
     },
     computed: {
+        ...mapState('delivery', ['stores']),
+        ...mapGetters('delivery', ['isLoadedStores']),
         isLoading() {
             return this.stores.length == 0
         },
@@ -41,17 +47,11 @@ export default {
         }
     },
     methods: {
-        ...mapActions('delivery', ['setStores']),
+        ...mapActions('delivery', ['loadStores', 'setSelectedStores']),
         next() {
-            this.setStores(this.selectedStores)
+            this.setSelectedStores(this.selectedStores)
             this.$router.push('instruction')
         }
-    },
-    created() {
-        setTimeout(() => {
-            const storesRef = Firebase.database().ref('stores')
-            this.$bindAsArray('stores', storesRef)
-        }, 500)
     }
 }
 </script>
