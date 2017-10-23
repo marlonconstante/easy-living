@@ -4,8 +4,8 @@ import Load from '@/pages/Load'
 import Login from '@/pages/Login'
 import User from '@/pages/User'
 import Welcome from '@/pages/Welcome'
-import Instruction from '@/pages/Instruction'
 import Stop from '@/pages/Stop'
+import Instruction from '@/pages/Instruction'
 import Thanks from '@/pages/Thanks'
 
 Vue.use(Router)
@@ -33,14 +33,14 @@ const router = new Router({
             component: Welcome
         },
         {
-            path: '/instruction',
-            name: 'instruction',
-            component: Instruction
-        },
-        {
             path: '/stop',
             name: 'stop',
             component: Stop
+        },
+        {
+            path: '/instruction',
+            name: 'instruction',
+            component: Instruction
         },
         {
             path: '/thanks',
