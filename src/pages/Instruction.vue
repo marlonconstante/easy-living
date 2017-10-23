@@ -6,11 +6,11 @@
             <div class="box-instruction">
                 <div class="title">Would you like to give us some more instruction?</div>
                 <div class="subtitle">(leave it blank, if not)</div>
-                <input-text-area v-model="instruction" :isTransparent="true" :isBig="true" placeholder="INSTRUCTION" />
+                <input-text-area v-focus v-model="instruction" :isTransparent="true" :isBig="true" placeholder="INSTRUCTION" />
 
                 <md-layout>
                     <md-layout md-align="end">
-                        <round-button :isInverted="true" iconClass="arrow_back" @click="back"/>
+                        <round-button :isInverted="true" iconClass="arrow_back" @click="back" />
                     </md-layout>
 
                     <md-layout>
@@ -47,6 +47,7 @@ export default {
         },
         next() {
             this.setInstruction(this.instruction)
+            this.$router.push('thanks')
         }
     }
 }
