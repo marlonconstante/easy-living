@@ -6,15 +6,15 @@
             <div class="box-instruction">
                 <div class="title">Would you like to give us some more instruction?</div>
                 <div class="subtitle">(leave it blank, if not)</div>
-                <input-text-area :isTransparent="true" :isBig="true" placeholder="INSTRUCTION" />
+                <input-text-area v-model="instruction" :isTransparent="true" :isBig="true" placeholder="INSTRUCTION" />
 
                 <md-layout>
                     <md-layout md-align="end">
-                        <round-button :isInverted="true" iconClass="arrow_back" />
+                        <round-button :isInverted="true" iconClass="arrow_back" @click="back"/>
                     </md-layout>
 
                     <md-layout>
-                        <round-button>GO</round-button>
+                        <round-button @click="next">GO</round-button>
                     </md-layout>
                 </md-layout>
             </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import HeaderBar from '@/components/HeaderBar'
 import InputTextArea from '@/components/InputTextArea'
 import RoundButton from '@/components/RoundButton'
@@ -33,6 +34,20 @@ export default {
         HeaderBar,
         InputTextArea,
         RoundButton
+    },
+    data() {
+        return {
+            instruction: this.$store.state.delivery.instruction
+        }
+    },
+    methods: {
+        ...mapActions('delivery', ['setInstruction']),
+        back() {
+            this.$router.go(-1)
+        },
+        next() {
+            this.setInstruction(this.instruction)
+        }
     }
 }
 </script>
