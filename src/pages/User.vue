@@ -26,7 +26,7 @@ export default {
     inject: ['$validator'],
     data() {
         return {
-            user: Object.assign({}, this.$store.state.auth.newUser)
+            user: { ...this.$store.state.auth.newUser }
         }
     },
     components: {
