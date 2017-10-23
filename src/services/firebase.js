@@ -1,8 +1,4 @@
-import Vue from 'vue'
-import VueFire from 'vuefire'
 import Firebase from 'firebase'
-
-Vue.use(VueFire)
 
 Firebase.initializeApp({
     apiKey: 'AIzaSyBUH8pJ2qOMFxblLKM87mFmbT9FYzC6OZU',
