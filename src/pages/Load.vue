@@ -26,10 +26,10 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['isLoggedUser'])
+        ...mapGetters('auth', ['isLoggedUser'])
     },
     methods: {
-        ...mapActions(['loadUser'])
+        ...mapActions('auth', ['loadUser'])
     }
 }
 </script>

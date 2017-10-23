@@ -37,7 +37,7 @@ export default {
         LinkButton
     },
     methods: {
-        ...mapActions(['clearNewUser', 'setNewUser']),
+        ...mapActions('auth', ['clearNewUser', 'setNewUser']),
         async next() {
             try {
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {

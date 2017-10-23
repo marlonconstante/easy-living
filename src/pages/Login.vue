@@ -37,13 +37,13 @@ export default {
         LinkButton
     },
     computed: {
-        ...mapGetters(['isNewAccount']),
+        ...mapGetters('auth', ['isNewAccount']),
         isLoading() {
             return this.$isLoading(this.$options.name)
         }
     },
     methods: {
-        ...mapActions(['registerNewUser', 'loginUser']),
+        ...mapActions('auth', ['registerNewUser', 'loginUser']),
         async next() {
             try {
                 this.$startLoading(this.$options.name)
