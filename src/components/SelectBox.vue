@@ -28,13 +28,16 @@ export default {
             return this.fieldName ? this.value[this.fieldName] : this.value
         },
         isSelected() {
-            return this.selectedValues.indexOf(this.value) != -1
+            return this.indexOf != -1
+        },
+        indexOf() {
+            return this.selectedValues.indexOf(this.value)
         }
     },
     methods: {
         onClick(event) {
             if (this.isSelected) {
-                this.selectedValues.pop(this.value)
+                this.$delete(this.selectedValues, this.indexOf)
             } else {
                 this.selectedValues.push(this.value)
             }
