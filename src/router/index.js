@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Load from '@/pages/Load'
 import Login from '@/pages/Login'
 import User from '@/pages/User'
 import Welcome from '@/pages/Welcome'
@@ -8,9 +9,13 @@ import Stop from '@/pages/Stop'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     routes: [
+        {
+            path: '/',
+            component: Load
+        },
         {
             path: '/login',
             name: 'login',
@@ -38,3 +43,7 @@ export default new Router({
         }
     ]
 })
+
+router.push('/')
+
+export default router
