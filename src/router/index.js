@@ -6,6 +6,7 @@ import User from '@/pages/User'
 import Welcome from '@/pages/Welcome'
 import Instruction from '@/pages/Instruction'
 import Stop from '@/pages/Stop'
+import Thanks from '@/pages/Thanks'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ const router = new Router({
             path: '/stop',
             name: 'stop',
             component: Stop
+        },
+        {
+            path: '/thanks',
+            name: 'thanks',
+            component: Thanks
         }
     ]
 })
