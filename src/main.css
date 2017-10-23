@@ -53,3 +53,13 @@ body {
     font-size: 16px;
     margin: 40px 0;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}

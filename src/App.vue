@@ -1,7 +1,9 @@
 <template>
     <div id="app">
         <div class="content">
-            <router-view></router-view>
+            <transition name="fade">
+                <router-view></router-view>
+            </transition>
         </div>
     </div>
 </template>
