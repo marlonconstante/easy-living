@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .userBox {
-    width: 243px;
+    width: 300px;
     margin: 40px;
     font-size: 16px;
     line-height: 17px;
@@ -42,7 +42,11 @@ export default {
 }
 
 .userBox .info .name {
+    width: 266px;
     font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-transform: uppercase;
     margin: 3px 10px 0 0;
 }
