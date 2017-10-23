@@ -54,6 +54,11 @@ body {
     margin: 40px 0;
 }
 
+.userName {
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.5s;

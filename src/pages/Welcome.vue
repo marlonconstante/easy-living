@@ -1,5 +1,5 @@
 <template>
-    <div class="welcome full-height">
+    <div class="full-height">
         <header-bar />
 
         <md-layout class="full-height" md-vertical-align="center" md-align="center">
@@ -44,8 +44,5 @@ export default {
 </script>
 
 <style>
-.welcome .userName {
-    font-weight: 700;
-    text-transform: capitalize;
-}
+
 </style>
