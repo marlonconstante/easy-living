@@ -5,7 +5,7 @@ export default {
     namespaced: true,
     state: {
         stores: [],
-        instruction: null
+        instruction: ''
     },
     mutations: {
         [SET_STORES](state, payload) {
