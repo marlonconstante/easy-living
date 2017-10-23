@@ -6,13 +6,14 @@
             <div class="box-stop">
                 <div class="title">Where do you need us to stop?</div>
                 <grid-select v-model="stores" fieldName="name" :isLoading="isLoading" :selectedValues="selectedStores" />
-                <round-button :disabled="!isSelectedStore">OK</round-button>
+                <round-button :disabled="!isSelectedStore" @click="next">OK</round-button>
             </div>
         </md-layout>
     </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Firebase from 'firebase'
 import HeaderBar from '@/components/HeaderBar'
 import GridSelect from '@/components/GridSelect'
@@ -28,7 +29,7 @@ export default {
     data() {
         return {
             stores: [],
-            selectedStores: []
+            selectedStores: this.$store.state.delivery.stores
         }
     },
     computed: {
@@ -37,6 +38,13 @@ export default {
         },
         isSelectedStore() {
             return this.selectedStores.length > 0
+        }
+    },
+    methods: {
+        ...mapActions('delivery', ['setStores']),
+        next() {
+            this.setStores(this.selectedStores)
+            this.$router.push('instruction')
         }
     },
     created() {
