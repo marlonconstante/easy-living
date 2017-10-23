@@ -4,7 +4,7 @@
             <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
         </div>
         <div v-else v-for="item in value">
-            <select-box :value="item" :fieldName="fieldName" @selectedValue="onSelectedValue" @unselectedValue="onUnselectedValue" />
+            <select-box :value="item" :selectedValues="selectedValues" :fieldName="fieldName" />
         </div>
     </md-layout>
 </template>
@@ -33,14 +33,6 @@ export default {
         },
         isLoading: {
             type: Boolean
-        }
-    },
-    methods: {
-        onSelectedValue(value) {
-            this.selectedValues.push(value)
-        },
-        onUnselectedValue(value) {
-            this.selectedValues.pop(value)
         }
     }
 }

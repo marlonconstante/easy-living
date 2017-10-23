@@ -8,16 +8,6 @@
 <script>
 export default {
     name: 'SelectBox',
-    data() {
-        return {
-            isSelected: false
-        }
-    },
-    computed: {
-        labelValue() {
-            return this.fieldName ? this.value[this.fieldName] : this.value
-        }
-    },
     props: {
         fieldName: {
             type: String
@@ -25,15 +15,28 @@ export default {
         value: {
             type: Object,
             required: true
+        },
+        selectedValues: {
+            type: Array,
+            default() {
+                return []
+            }
+        }
+    },
+    computed: {
+        labelValue() {
+            return this.fieldName ? this.value[this.fieldName] : this.value
+        },
+        isSelected() {
+            return this.selectedValues.indexOf(this.value) != -1
         }
     },
     methods: {
         onClick(event) {
-            this.isSelected = !this.isSelected
             if (this.isSelected) {
-                this.$emit('selectedValue', this.value)
+                this.selectedValues.pop(this.value)
             } else {
-                this.$emit('unselectedValue', this.value)
+                this.selectedValues.push(this.value)
             }
         }
     }
