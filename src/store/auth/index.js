@@ -25,6 +25,7 @@ const getUserData = async (user) => {
 }
 
 export default {
+    namespaced: true,
     state: {
         newUser: emptyUser,
         currentUser: null
