@@ -21,7 +21,11 @@ export default {
     },
     created() {
         setTimeout(() => {
-            this.$router.push('stop')
+            if (this.isLoggedUser) {
+                this.$router.push('stop')
+            } else {
+                this.$router.push('login')
+            }
         }, 2000)
     },
     computed: {
