@@ -1,7 +1,7 @@
 <template>
     <div class="inputText">
-        <input v-if="mask" :type="type" :value="value" :placeholder="placeholder" :name="fieldName" v-mask="mask" v-validate="validation" @input="onInput">
-        <input v-else :type="type" :value="value" :placeholder="placeholder" :name="fieldName" v-validate="validation" @input="onInput">
+        <input v-if="mask" :type="type" :value="value" :placeholder="placeholder" :name="fieldName" :disabled="disabled" v-mask="mask" v-validate="validation" @input="onInput">
+        <input v-else :type="type" :value="value" :placeholder="placeholder" :name="fieldName" :disabled="disabled" v-validate="validation" @input="onInput">
         <span v-if="mask && maskPlaceholder" class="mask-placeholder">{{ maskPlaceholder }}</span>
         <div v-if="errors.has(fieldName)" class="validation-error">{{ errors.first(fieldName) }}</div>
     </div>
@@ -30,6 +30,9 @@ export default {
         },
         maskPlaceholder: {
             type: String
+        },
+        disabled: {
+            type: Boolean
         },
         validation: {
             type: [String, Object],
@@ -83,6 +86,10 @@ export default {
     font-family: 'Archivo';
     font-size: 16px;
     color: #fc4349;
+}
+
+.inputText input[disabled] {
+    opacity: 0.5;
 }
 
 .inputText input[type=email] { 
