@@ -1,7 +1,7 @@
 <template>
     <div tabindex="0" class="userBox" @keyup.enter="onClick" @keyup.space="onClick" @click="onClick">
         <div class="info">
-            <span class="name">{{ name }}</span>
+            <span class="name">{{ user.name }}</span>
             <md-menu ref="menu" md-align-trigger md-direction="bottom left" md-size="4">
                 <md-icon md-menu-trigger>account_circle</md-icon>
                 <md-menu-content>
@@ -12,23 +12,20 @@
                 </md-menu-content>
             </md-menu>
         </div>
-        <div class="community">{{ community }}</div>
-        <div class="address">{{ address }}</div>
+        <div class="community">{{ user.community }}</div>
+        <div class="address">{{ user.address }}</div>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name: 'UserBox',
-    props: {
-        name: {
-            type: String
-        },
-        community: {
-            type: String
-        },
-        address: {
-            type: String
+    computed: {
+        ...mapState('auth', ['newUser', 'currentUser']),
+        user() {
+            return (this.currentUser || this.newUser)
         }
     },
     methods: {
