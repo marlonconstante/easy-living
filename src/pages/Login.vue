@@ -7,7 +7,7 @@
             <input-text type="password" v-model="credentials.password" placeholder="PASSWORD" :disabled="isForgotPassword" validation="required|min:6" />
             <round-button iconClass="arrow_forward" :isLoading="isLoadingUser" @click="next" />
             <link-button v-if="!isNewAccount" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
-            <link-button v-if="!isNewAccount" @click="forgotPassword">FORGOT PASSWORD?</link-button>
+            <link-button v-if="!isNewAccount" :isLoading="isSendingEmail" @click="forgotPassword">FORGOT PASSWORD?</link-button>
         </div>
     </md-layout>
 </template>
@@ -20,6 +20,7 @@ import RoundButton from '@/components/RoundButton'
 import LinkButton from '@/components/LinkButton'
 
 const LOADING_USER = 'LOADING_USER'
+const SENDING_EMAIL = 'SENDING_EMAIL'
 
 export default {
     name: 'Login',
@@ -43,6 +44,9 @@ export default {
         ...mapGetters('auth', ['isNewAccount']),
         isLoadingUser() {
             return this.$isLoading(LOADING_USER)
+        },
+        isSendingEmail() {
+            return this.$isLoading(SENDING_EMAIL)
         }
     },
     methods: {
@@ -67,7 +71,20 @@ export default {
         createAccount() {
             this.$router.push('user')
         },
-        forgotPassword() {
+        async forgotPassword() {
+            try {
+                this.$startLoading(SENDING_EMAIL)
+                this.isForgotPassword = true
+                this.credentials.password = '';
+                
+                if (await this.$utils.validateAll(this.$el, this.$validator)) {
+                }
+            } catch (error) {
+                this.$toasted.showError(error)
+            } finally {
+                this.isForgotPassword = false
+                this.$endLoading(SENDING_EMAIL)
+            }
         }
     }
 }
