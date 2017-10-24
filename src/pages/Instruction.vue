@@ -14,7 +14,7 @@
                     </md-layout>
 
                     <md-layout>
-                        <round-button @click="next">GO</round-button>
+                        <round-button :isLoading="isSavingDelivery" @click="next">GO</round-button>
                     </md-layout>
                 </md-layout>
             </div>
@@ -23,10 +23,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import HeaderBar from '@/components/HeaderBar'
 import InputTextArea from '@/components/InputTextArea'
 import RoundButton from '@/components/RoundButton'
+
+const SAVING_DELIVERY = 'SAVING_DELIVERY'
 
 export default {
     name: 'Instruction',
@@ -40,14 +42,28 @@ export default {
             instruction: this.$store.state.delivery.instruction
         }
     },
+    computed: {
+        ...mapState('auth', ['currentUser']),
+        isSavingDelivery() {
+            return this.$isLoading(SAVING_DELIVERY)
+        }
+    },
     methods: {
-        ...mapActions('delivery', ['setInstruction']),
+        ...mapActions('delivery', ['setInstruction', 'saveDelivery']),
         back() {
             this.$router.go(-1)
         },
-        next() {
-            this.setInstruction(this.instruction)
-            this.$router.push('thanks')
+        async next() {
+            try {
+                this.$startLoading(SAVING_DELIVERY)
+                this.setInstruction(this.instruction)
+                await this.saveDelivery(this.currentUser)
+                this.$router.push('thanks')
+            } catch (error) {
+                this.$toasted.showError(error)
+            } finally {
+                this.$endLoading(SAVING_DELIVERY)
+            }
         }
     }
 }
