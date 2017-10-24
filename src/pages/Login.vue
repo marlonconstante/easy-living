@@ -14,6 +14,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Firebase from 'firebase'
 import Slogan from '@/components/Slogan'
 import InputText from '@/components/InputText'
 import RoundButton from '@/components/RoundButton'
@@ -78,6 +79,10 @@ export default {
                 this.credentials.password = '';
                 
                 if (await this.$utils.validateAll(this.$el, this.$validator)) {
+                    await Firebase.auth().sendPasswordResetEmail(this.credentials.email)
+                    this.$toasted.showInfo({
+                        message: 'Password reset email sent successfully.'
+                    })
                 }
             } catch (error) {
                 this.$toasted.showError(error)
