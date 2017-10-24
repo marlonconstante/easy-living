@@ -1,5 +1,5 @@
 <template>
-    <div class="infoBox">
+    <div class="infoBox animated bounce">
         <span class="title" v-html="title" />
         <span class="message" v-html="message" />
     </div>
