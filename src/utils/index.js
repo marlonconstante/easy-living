@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 Vue.prototype.$utils = {
     async validateAll(el, validator) {
+        await validator.reset()
         if (await validator.validateAll()) {
             return true
         } else {
