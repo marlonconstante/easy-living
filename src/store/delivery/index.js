@@ -30,6 +30,16 @@ export default {
         }
     },
     actions: {
+        async saveDelivery({ commit, state }, user) {
+            await db.ref('deliveries').push().set({
+                user,
+                instruction: state.instruction,
+                stores: state.selectedStores
+            })
+
+            commit(SET_SELECTED_STORES, [])
+            commit(SET_INSTRUCTION, '')
+        },
         async loadStores({ commit }) {
             const stores = []
 
