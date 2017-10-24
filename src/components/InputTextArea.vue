@@ -1,6 +1,6 @@
 <template>
     <div class="inputTextArea">
-        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" v-validate="validation" @input="onInput" />
+        <textarea :class="[isTransparent ? 'transparent' : '', isBig ? 'big' : '']" :value="value" :placeholder="placeholder" :name="fieldName" :disabled="disabled" v-validate="validation" @input="onInput" />
         <div v-if="errors.has(fieldName)" class="validation-error">{{ errors.first(fieldName) }}</div>
     </div>
 </template>
@@ -24,6 +24,9 @@ export default {
         },
         name: {
             type: String
+        },
+        disabled: {
+            type: Boolean
         },
         validation: {
             type: [String, Object],
@@ -64,6 +67,10 @@ export default {
     font-family: 'Archivo';
     font-size: 16px;
     color: #fc4349;
+}
+
+.inputTextArea textarea[disabled] {
+    opacity: 0.5;
 }
 
 .inputTextArea textarea.big {
