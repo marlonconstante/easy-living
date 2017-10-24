@@ -5,25 +5,18 @@
         </md-layout>
 
         <md-layout md-align="end">
-            <user-box :name="user.name" :community="user.community" :address="user.address" />
+            <user-box />
         </md-layout>
     </md-layout>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import UserBox from '@/components/UserBox'
 
 export default {
     name: 'HeaderBar',
     components: {
         UserBox
-    },
-    computed: {
-        ...mapState('auth', ['newUser', 'currentUser']),
-        user() {
-            return (this.currentUser || this.newUser)
-        }
     }
 }
 </script>
