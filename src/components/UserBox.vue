@@ -1,8 +1,16 @@
 <template>
-    <div tabindex="0" class="userBox">
+    <div tabindex="0" class="userBox" @keyup.enter="onClick" @keyup.space="onClick" @click="onClick">
         <div class="info">
             <span class="name">{{ name }}</span>
-            <md-icon>account_circle</md-icon>
+            <md-menu ref="menu" md-align-trigger md-direction="bottom left" md-size="4">
+                <md-icon md-menu-trigger>account_circle</md-icon>
+                <md-menu-content>
+                    <md-menu-item>
+                        <span>Sign out</span>
+                        <md-icon>exit_to_app</md-icon>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
         <div class="community">{{ community }}</div>
         <div class="address">{{ address }}</div>
@@ -21,6 +29,11 @@ export default {
         },
         address: {
             type: String
+        }
+    },
+    methods: {
+        onClick(event) {
+            this.$refs.menu.open()
         }
     }
 }
