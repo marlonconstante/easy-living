@@ -1,5 +1,5 @@
 <template>
-    <div class="slogan">
+    <div class="slogan animated fadeInUp">
         <span>{{ message }}</span>
     </div>
 </template>
