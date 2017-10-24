@@ -8,6 +8,10 @@ Vue.use(Toasted, {
     duration: 4000
 })
 
+Vue.toasted.showInfo = (info) => {
+    Vue.toasted.show(info.message, { icon: 'info' })
+}
+
 Vue.toasted.showError = (error) => {
     Vue.toasted.show(error.message, { icon: 'error' })
 }
