@@ -1,5 +1,5 @@
 <template>
-    <div class="userBox">
+    <div tabindex="0" class="userBox">
         <div class="info">
             <span class="name">{{ name }}</span>
             <md-icon>account_circle</md-icon>
@@ -28,13 +28,22 @@ export default {
 
 <style scoped>
 .userBox {
-    width: 300px;
-    margin: 40px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+    width: 340px;
+    margin: 20px;
+    padding: 20px;
     font-size: 16px;
     line-height: 17px;
     letter-spacing: 0.7px;
     text-align: right;
     color: #ffffff;
+}
+
+.userBox:hover,
+.userBox:focus {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .userBox .info {
