@@ -1,3 +1,31 @@
 .md-theme-default.md-spinner.md-indeterminate .md-spinner-draw .md-spinner-path {
     stroke: #ffffff;
 }
+
+.md-menu-content {
+    min-height: 0;
+}
+
+.md-menu-content.md-direction-bottom-left.md-active {
+    margin-top: 0;
+}
+
+.md-menu-content .md-list {
+    padding: 0;
+}
+
+.md-menu-content .md-list-item-container {
+    font-family: 'Archivo';
+    font-weight: 700;
+}
+
+.md-menu-content .md-menu-item:hover .md-button,
+.md-menu-content .md-menu-item:focus .md-button,
+.md-menu-content .md-menu-item.md-highlighted .md-button {
+    background-color: rgba(255, 0, 0, 0.1) !important;
+}
+
+.md-menu-content .md-button,
+.md-menu-content .md-icon {
+    color: #8f4352;
+}
