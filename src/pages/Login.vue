@@ -53,6 +53,7 @@ export default {
                     } else {
                         await this.loginUser(this.credentials)
                     }
+                    this.$router.push('welcome')
                 }
             } catch (error) {
                 this.$toasted.showError(error)
