@@ -4,7 +4,7 @@
             <img src="../assets/logo.svg">
             <slogan />
             <input-text v-focus type="email" v-model="credentials.email" placeholder="E-MAIL" validation="required|email" />
-            <input-text type="password" v-model="credentials.password" placeholder="PASSWORD" validation="required|min:6" />
+            <input-text type="password" v-model="credentials.password" placeholder="PASSWORD" :disabled="isForgotPassword" validation="required|min:6" />
             <round-button iconClass="arrow_forward" :isLoading="isLoading" @click="next" />
             <link-button v-if="!isNewAccount" @click="createAccount">YOU DO NOT HAVE AN ACCOUNT?</link-button>
             <link-button v-if="!isNewAccount" @click="forgotPassword">FORGOT PASSWORD?</link-button>
@@ -24,6 +24,7 @@ export default {
     inject: ['$validator'],
     data() {
         return {
+            isForgotPassword: false,
             credentials: {
                 email: '',
                 password: ''
