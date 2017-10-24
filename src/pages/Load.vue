@@ -1,8 +1,7 @@
 <template>
-    <md-layout class="full-height" md-vertical-align="center" md-align="center">
+    <md-layout class="load full-height" md-vertical-align="center" md-align="center">
         <div class="box">
-            <img src="../assets/logo.svg">
-            <slogan />
+            <img class="animated tada" src="../assets/logo.svg">
             <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
         </div>
     </md-layout>
@@ -10,13 +9,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Slogan from '@/components/Slogan'
 
 export default {
     name: 'Load',
-    components: {
-        Slogan
-    },
     async created() {
         await this.loadUser()
         if (this.isLoggedUser) {
@@ -34,6 +29,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.load .box img {
+    padding: 0 0 50px 0;
+}
 </style>
