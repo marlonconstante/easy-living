@@ -5,7 +5,7 @@
             <md-menu ref="menu" md-align-trigger md-direction="bottom left" md-size="4">
                 <md-icon md-menu-trigger>account_circle</md-icon>
                 <md-menu-content>
-                    <md-menu-item>
+                    <md-menu-item @click="signOut">
                         <span>Sign out</span>
                         <md-icon>exit_to_app</md-icon>
                     </md-menu-item>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     name: 'UserBox',
@@ -29,8 +29,13 @@ export default {
         }
     },
     methods: {
+        ...mapActions('auth', ['logoutUser']),
         onClick(event) {
             this.$refs.menu.open()
+        },
+        async signOut() {
+            await this.logoutUser()
+            this.$router.push('login')
         }
     }
 }
