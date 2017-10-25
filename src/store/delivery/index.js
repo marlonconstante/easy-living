@@ -49,7 +49,7 @@ export default {
             snapshot.forEach(child => {
                 const { key } = child
                 stores.push({ key, ...child.val() })
-            });
+            })
 
             commit(SET_STORES, stores)
         },
