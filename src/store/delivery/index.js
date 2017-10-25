@@ -31,11 +31,13 @@ export default {
     },
     actions: {
         async saveDelivery({ commit, state }, user) {
-            await db.ref('deliveries').push().set({
-                user,
-                instruction: state.instruction,
-                stores: state.selectedStores
+            const { uid } = user
+            const { instruction } = state
+            const stores = state.selectedStores.map(store => {
+                return store.key
             })
+
+            await db.ref('deliveries').push().set({ uid, instruction, stores })
 
             commit(SET_SELECTED_STORES, [])
             commit(SET_INSTRUCTION, '')
@@ -45,7 +47,8 @@ export default {
 
             const snapshot = await db.ref('stores').once('value')
             snapshot.forEach(child => {
-                stores.push(child.val())
+                const { key } = child
+                stores.push({ key, ...child.val() })
             });
 
             commit(SET_STORES, stores)
