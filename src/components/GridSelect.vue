@@ -1,5 +1,5 @@
 <template>
-    <md-layout class="gridSelect">
+    <md-layout class="gridSelect" md-align="center">
         <div v-if="isLoading">
             <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
         </div>
@@ -42,6 +42,5 @@ export default {
 .gridSelect {
     margin: 5px;
     padding: 70px 0 55px 0;
-    justify-content: center;
 }
 </style>
