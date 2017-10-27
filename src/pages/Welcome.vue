@@ -26,7 +26,7 @@ export default {
             } else {
                 this.$router.push('login')
             }
-        }, 2000)
+        }, 4000)
     },
     computed: {
         ...mapGetters('auth', ['isLoggedUser']),
