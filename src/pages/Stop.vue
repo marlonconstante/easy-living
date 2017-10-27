@@ -5,7 +5,7 @@
         <md-layout class="full-height" md-vertical-align="center" md-align="center">
             <div class="box-stop">
                 <div class="title">Where do you need us to stop?</div>
-                <grid-select v-model="stores" fieldName="name" :isLoading="isLoading" :selectedValues="selectedStores" />
+                <grid-select v-model="stores" fieldName="description" :isLoading="isLoading" :selectedValues="selectedStores" />
                 <round-button :disabled="!isSelectedStore" @click="next">OK</round-button>
             </div>
         </md-layout>

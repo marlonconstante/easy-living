@@ -48,7 +48,9 @@ export default {
             const snapshot = await db.ref('stores').once('value')
             snapshot.forEach(child => {
                 const { key } = child
-                stores.push({ key, ...child.val() })
+                const { name, city, phone } = child.val()
+                const description = `${name}, ${city}`
+                stores.push({ key, name, city, phone, description })
             })
 
             commit(SET_STORES, stores)
