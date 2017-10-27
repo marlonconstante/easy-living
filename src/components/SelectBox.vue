@@ -60,6 +60,9 @@ export default {
     padding: 23px;
     line-height: 17px;
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: start;
     text-transform: uppercase;
 }
