@@ -27,8 +27,8 @@ const getStoresInformation = (stores, keys) => {
     information.push('Stores:')
 
     keys.forEach(key => {
-        const { id, name } = stores[key]
-        information.push(`- [${id}] ${name}`)
+        const { name, city, phone } = stores[key]
+        information.push(`- [${phone}] ${name}, ${city}`)
     })
 
     return information
