@@ -61,7 +61,7 @@ exports.sendDeliveryEmail = functions.database.ref('/deliveries/{key}').onCreate
 
         const email = {
             from: 'noreply@easy-living-deliveries.firebaseapp.com',
-            to: 'easylivingdeliveries@gmail.com',
+            to: 'easylivingsc@gmail.com',
             subject: `[${key}] Delivery`,
             text: information.join('\n\n')
         }
