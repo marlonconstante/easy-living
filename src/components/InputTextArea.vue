@@ -110,5 +110,9 @@ export default {
         margin: 16px 0;
         padding: 16px;
     }
+
+    .inputTextArea textarea.big {
+        height: 325px;
+    }
 }
 </style>
