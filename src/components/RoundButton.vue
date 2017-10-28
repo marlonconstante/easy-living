@@ -2,11 +2,11 @@
     <div class="roundButton">
         <div class="content">
             <md-button :class="[isInverted ? 'inverted' : '', 'md-fab']" :disabled="disabled || isLoading" @click="onClick">
-                <md-icon class="md-size-2x">{{ iconClass }}</md-icon>
+                <md-icon>{{ iconClass }}</md-icon>
                 <slot />
             </md-button>
             <div class="spinner" v-if="isLoading">
-                <md-spinner :md-size="91" :md-stroke="1" md-indeterminate />
+                <md-spinner :md-stroke="1" md-indeterminate />
             </div>
         </div>
     </div>
@@ -50,6 +50,11 @@ export default {
     left: 0;
 }
 
+.roundButton .content .spinner .md-spinner {
+    width: 91px !important;
+    height: 91px !important;
+}
+
 .roundButton .content .md-theme-default.md-button.md-fab {
     margin: 0;
     width: 91px;
@@ -88,5 +93,34 @@ export default {
 .roundButton .content .md-theme-default.md-button.md-fab.inverted:hover,
 .roundButton .content .md-theme-default.md-button.md-fab.inverted:focus {
     border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.roundButton .content .md-icon {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+    font-size: 48px;
+}
+
+@media (max-width: 600px) {
+    .roundButton .content .spinner .md-spinner {
+        width: 64px !important;
+        height: 64px !important;
+    }
+
+    .roundButton .content .md-theme-default.md-button.md-fab {
+        width: 64px;
+        height: 64px;
+        font-size: 16px;
+    }
+
+    .roundButton .content .md-icon {
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+        min-height: 32px;
+        font-size: 32px;
+    }
 }
 </style>
