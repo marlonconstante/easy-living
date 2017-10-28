@@ -103,4 +103,12 @@ export default {
 .inputTextArea textarea.transparent:focus {
     box-shadow: 0 0 40px #ff8287;
 }
+
+@media (max-width: 600px) {
+    .inputTextArea textarea {
+        height: 112px;
+        margin: 16px 0;
+        padding: 16px;
+    }
+}
 </style>
