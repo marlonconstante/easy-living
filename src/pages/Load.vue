@@ -1,7 +1,7 @@
 <template>
     <md-layout class="load full-height" md-vertical-align="center" md-align="center">
         <div class="box">
-            <img class="animated tada" src="../assets/logo.svg">
+            <img class="logo animated tada" src="../assets/logo.svg">
             <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
         </div>
     </md-layout>

@@ -1,7 +1,7 @@
 <template>
     <md-layout class="headerBar">
         <md-layout md-vertical-align="start">
-            <img src="../assets/logo.svg">
+            <img class="logo" src="../assets/logo.svg">
         </md-layout>
 
         <md-layout md-align="end">

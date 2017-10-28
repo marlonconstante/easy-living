@@ -1,7 +1,7 @@
 <template>
     <md-layout class="full-height" md-vertical-align="center" md-align="center">
         <div class="box">
-            <img src="../assets/logo.svg">
+            <img class="logo" src="../assets/logo.svg">
             <slogan />
             <input-text v-focus type="email" v-model="credentials.email" placeholder="E-MAIL" validation="required|email" />
             <input-text type="password" v-model="credentials.password" placeholder="PASSWORD" :disabled="isForgotPassword" validation="required|min:6" />

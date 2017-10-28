@@ -1,7 +1,7 @@
 <template>
     <md-layout class="full-height" md-vertical-align="center" md-align="center">
         <div class="box">
-            <img src="../assets/logo.svg">
+            <img class="logo" src="../assets/logo.svg">
             <slogan />
             <input-text v-focus v-model="user.name" placeholder="NAME" validation="required|alpha_spaces" />
             <input-text v-model="user.birthDate" mask="##/##/####" maskPlaceholder="MM/DD/YYYY" placeholder="DATE OF BIRTH" validation="required|date_format:MM/DD/YYYY" />
