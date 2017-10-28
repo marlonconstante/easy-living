@@ -21,4 +21,11 @@ export default {
     font-size: 22.6px;
     margin: 21.5px 0 60px 0;
 }
+
+@media (max-width: 600px) {
+    .slogan span {
+        font-size: 16px;
+        margin: 16px 0 32px 0;
+    }
+}
 </style>
