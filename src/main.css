@@ -68,3 +68,13 @@ body {
 .fade-leave-to {
     opacity: 0;
 }
+
+.logo {
+    width: 297px;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 165px;
+    }
+}
