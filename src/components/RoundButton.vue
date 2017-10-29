@@ -6,7 +6,7 @@
                 <slot />
             </md-button>
             <div class="spinner" v-if="isLoading">
-                <md-spinner :md-stroke="1" md-indeterminate />
+                <md-spinner :md-size="0" :md-stroke="1" md-indeterminate />
             </div>
         </div>
     </div>
