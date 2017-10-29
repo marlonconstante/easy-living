@@ -49,4 +49,11 @@ export default {
     width: 100%;
     max-width: 440px;
 }
+
+@media (max-width: 600px) {
+    .gridSelect {
+        margin: 8px;
+        padding: 38px 0 8px 0;
+    }
+}
 </style>
