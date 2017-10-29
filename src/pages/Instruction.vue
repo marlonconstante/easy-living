@@ -72,7 +72,8 @@ export default {
 <style scoped>
 .box-instruction {
     margin: 152px 0 80px 0;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
 }
 
 .box-instruction .inputTextArea {
@@ -81,5 +82,19 @@ export default {
 
 .box-instruction .subtitle {
     margin-bottom: 46px;
+}
+
+@media (max-width: 600px) {
+    .box-instruction {
+        margin: 104px 0 26px 0;
+    }
+
+    .box-instruction .inputTextArea {
+        margin: 0 16px;
+    }
+
+    .box-instruction .subtitle {
+        margin-bottom: 28px;
+    }
 }
 </style>
