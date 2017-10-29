@@ -1,7 +1,7 @@
 <template>
     <md-layout class="gridSelect" md-align="center">
         <div v-if="isLoading">
-            <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
+            <md-spinner :md-size="0" :md-stroke="1.5" md-indeterminate />
         </div>
         <div class="gridSelectBox" v-else v-for="item in value">
             <select-box :value="item" :selectedValues="selectedValues" :fieldName="fieldName" />
@@ -50,10 +50,20 @@ export default {
     max-width: 440px;
 }
 
+.gridSelect .md-spinner {
+    width: 150px !important;
+    height: 150px !important;
+}
+
 @media (max-width: 600px) {
     .gridSelect {
         margin: 8px;
         padding: 38px 0 8px 0;
+    }
+
+    .gridSelect .md-spinner {
+        width: 75px !important;
+        height: 75px !important;
     }
 }
 </style>
