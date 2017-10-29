@@ -60,4 +60,10 @@ export default {
 .box-stop {
     margin: 152px 0 80px 0;
 }
+
+@media (max-width: 600px) {
+    .box-stop {
+        margin: 104px 0 26px 0;
+    }
+}
 </style>
