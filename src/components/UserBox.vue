@@ -65,12 +65,17 @@ export default {
     display: inline-flex;
 }
 
+.userBox .info .name,
+.userBox .community,
+.userBox .address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .userBox .info .name {
     width: 266px;
     font-weight: 700;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-transform: uppercase;
     margin: 3px 10px 0 0;
 }
@@ -79,10 +84,14 @@ export default {
     opacity: 0.8;
     font-weight: 500;
     font-style: italic;
+    white-space: nowrap;
     margin: 10px 0;
 }
 
 .userBox .address {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     opacity: 0.8;
 }
 </style>
