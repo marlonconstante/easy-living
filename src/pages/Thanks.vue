@@ -52,4 +52,14 @@ export default {
 .box-thanks .roundButton {
     padding: 65px 0 0 0;
 }
+
+@media (max-width: 600px) {
+    .box-thanks {
+        margin: 104px 0 26px 0;
+    }
+
+    .box-thanks .roundButton {
+        padding: 0;
+    }
+}
 </style>
