@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .box-stop {
-    margin: 152px 0 80px 0;
+    margin: 175px 0 80px 0;
 }
 
 @media (max-width: 600px) {

@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .box-thanks {
-    margin: 152px 0 80px 0;
+    margin: 175px 0 80px 0;
 }
 
 .box-thanks .roundButton {

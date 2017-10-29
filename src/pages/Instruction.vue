@@ -71,7 +71,7 @@ export default {
 
 <style scoped>
 .box-instruction {
-    margin: 152px 0 80px 0;
+    margin: 175px 0 80px 0;
     width: 100%;
     max-width: 450px;
 }
