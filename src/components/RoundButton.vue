@@ -104,6 +104,10 @@ export default {
 }
 
 @media (max-width: 600px) {
+    .roundButton .content {
+        margin: 10px;
+    }
+
     .roundButton .content .spinner .md-spinner {
         width: 64px !important;
         height: 64px !important;
