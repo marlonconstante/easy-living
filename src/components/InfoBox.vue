@@ -37,4 +37,15 @@ export default {
     font-size: 32px;
     color: #ffffff;
 }
+
+@media (max-width: 600px) {
+    .infoBox .title {
+        font-size: 32px;
+    }
+
+    .infoBox .message {
+        margin-top: 5px;
+        font-size: 16px;
+    }
+}
 </style>
