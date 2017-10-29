@@ -51,4 +51,11 @@ export default {
         opacity: 0.25;
     }
 }
+
+@media (max-width: 600px) {
+    .linkButton {
+        padding: 10px;
+        margin: 5px 0;
+    }
+}
 </style>
