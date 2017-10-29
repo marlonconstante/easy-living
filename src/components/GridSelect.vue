@@ -3,7 +3,7 @@
         <div v-if="isLoading">
             <md-spinner :md-size="150" :md-stroke="1.5" md-indeterminate />
         </div>
-        <div v-else v-for="item in value">
+        <div class="gridSelectBox" v-else v-for="item in value">
             <select-box :value="item" :selectedValues="selectedValues" :fieldName="fieldName" />
         </div>
     </md-layout>
@@ -42,5 +42,11 @@ export default {
 .gridSelect {
     margin: 5px;
     padding: 70px 0 55px 0;
+}
+
+.gridSelect .gridSelectBox {
+    display: grid;
+    width: 100%;
+    max-width: 440px;
 }
 </style>

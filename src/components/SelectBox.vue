@@ -54,7 +54,6 @@ export default {
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
-    width: 440px;
     height: 64px;
     margin: 5px;
     padding: 23px;
@@ -91,5 +90,22 @@ export default {
     border-radius: 7px;
     box-shadow: 0 0 0 5px rgba(143, 67, 82, 0.6);
     background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+    .selectBox {
+        height: 48px;
+        margin: 8px;
+        padding: 16px;
+    }
+
+    .selectBox.active .circle {
+        right: 19px;
+        top: 19px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 0 3px rgba(143, 67, 82, 0.6);
+    }
 }
 </style>
