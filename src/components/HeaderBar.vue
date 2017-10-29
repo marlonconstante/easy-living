@@ -23,8 +23,9 @@ export default {
 
 <style scoped>
 .headerBar {
-    position: fixed;
+    position: absolute;
     width: 100%;
+    height: 175px;
 }
 
 .headerBar img {
