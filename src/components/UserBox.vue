@@ -96,18 +96,29 @@ export default {
 }
 
 @media (max-width: 600px) {
-    .headerBar .userBox {
-        width: 150px;
-        margin: 16px 8px;
-        padding: 16px 8px;
+    .userBox {
+        width: 224px;
+        margin: 32px auto;
+        text-align: center;
         font-size: 14px;
         line-height: 15px;
         letter-spacing: 0.6px;
     }
 
+    .userBox .info .name {
+        width: 150px;
+        margin: 5px 10px 0 0;
+    }
+
+    .headerBar .userBox {
+        text-align: end;
+        width: 150px;
+        margin: 16px 8px;
+        padding: 16px 8px;
+    }
+
     .headerBar .userBox .info .name {
         width: 100px;
-        margin: 5px 10px 0 0;
     }
 
     .headerBar .userBox .community,
