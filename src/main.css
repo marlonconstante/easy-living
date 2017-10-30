@@ -41,6 +41,25 @@ body {
     padding: 15px;
 }
 
+.header-box {
+    top: 32px;
+    width: 100%;
+}
+
+.footer-box {
+    bottom: 0;
+}
+
+.header-box,
+.footer-box {
+    position: absolute;
+}
+
+.mobile-content .header-box,
+.mobile-content .footer-box {
+    display: none;
+}
+
 .full-height {
     height: 100%;
 }
@@ -82,6 +101,15 @@ body {
     
     .box .roundButton {
         padding: 4px;
+    }
+
+    .mobile-content .headerBar {
+        display: none;
+    }
+
+    .mobile-content .header-box,
+    .mobile-content .footer-box {
+        display: block;
     }
     
     .title {
