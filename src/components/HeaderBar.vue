@@ -31,4 +31,14 @@ export default {
 .headerBar img {
     margin: 40px;
 }
+
+@media (max-width: 600px) {
+    .headerBar {
+        height: 94px;
+    }
+
+    .headerBar img {
+        margin: 32px 16px;
+    }
+}
 </style>

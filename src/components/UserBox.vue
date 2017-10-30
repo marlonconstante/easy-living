@@ -94,4 +94,25 @@ export default {
     -webkit-box-orient: vertical;
     opacity: 0.8;
 }
+
+@media (max-width: 600px) {
+    .headerBar .userBox {
+        width: 150px;
+        margin: 16px 8px;
+        padding: 16px 8px;
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: 0.6px;
+    }
+
+    .headerBar .userBox .info .name {
+        width: 100px;
+        margin: 5px 10px 0 0;
+    }
+
+    .headerBar .userBox .community,
+    .headerBar .userBox .address {
+        display: none;
+    }
+}
 </style>
