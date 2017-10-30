@@ -1,9 +1,18 @@
 <template>
-    <div class="full-height">
+    <div class="mobile-content full-height">
         <header-bar />
+
+        <div class="header-box">
+            <img class="logo" src="../assets/logo.svg">
+            <slogan />
+        </div>
 
         <md-layout class="full-height" md-vertical-align="center" md-align="center">
             <info-box :title="title" :message="message" />
+
+            <div class="footer-box">
+                <user-box />
+            </div>
         </md-layout>
     </div>
 </template>
@@ -11,13 +20,17 @@
 <script>
 import { mapGetters, mapState } from 'vuex'
 import HeaderBar from '@/components/HeaderBar'
+import Slogan from '@/components/Slogan'
 import InfoBox from '@/components/InfoBox'
+import UserBox from '@/components/UserBox'
 
 export default {
     name: 'Welcome',
     components: {
         HeaderBar,
-        InfoBox
+        Slogan,
+        InfoBox,
+        UserBox
     },
     created() {
         setTimeout(() => {

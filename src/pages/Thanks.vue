@@ -1,11 +1,20 @@
 <template>
-    <div class="full-height">
+    <div class="mobile-content full-height">
         <header-bar />
+
+        <div class="header-box">
+            <img class="logo" src="../assets/logo.svg">
+            <slogan />
+        </div>
 
         <md-layout class="full-height" md-vertical-align="center" md-align="center">
             <div class="box-thanks">
                 <info-box :title="title" :message="message" />
                 <round-button iconClass="replay" @click="repeat" />
+            </div>
+
+            <div class="footer-box">
+                <user-box />
             </div>
         </md-layout>
     </div>
@@ -14,15 +23,19 @@
 <script>
 import { mapState } from 'vuex'
 import HeaderBar from '@/components/HeaderBar'
+import Slogan from '@/components/Slogan'
 import InfoBox from '@/components/InfoBox'
 import RoundButton from '@/components/RoundButton'
+import UserBox from '@/components/UserBox'
 
 export default {
     name: 'Thanks',
     components: {
         HeaderBar,
+        Slogan,
         InfoBox,
-        RoundButton
+        RoundButton,
+        UserBox
     },
     computed: {
         ...mapState('auth', ['currentUser']),
@@ -55,7 +68,7 @@ export default {
 
 @media (max-width: 600px) {
     .box-thanks {
-        margin: 104px 0 26px 0;
+        margin: 0;
     }
 
     .box-thanks .roundButton {
