@@ -25,27 +25,32 @@ export default {
 }
 
 .infoBox .title {
+    margin: 0;
     text-align: center;
     font-size: 64px;
+    line-height: 69px;
     color: #2c3e50;
 }
 
 .infoBox .message {
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     font-size: 32px;
+    line-height: 35px;
     color: #ffffff;
 }
 
 @media (max-width: 600px) {
     .infoBox .title {
         font-size: 32px;
+        line-height: 35px;
     }
 
     .infoBox .message {
         margin-top: 5px;
         font-size: 16px;
+        line-height: 17px;
     }
 }
 </style>
