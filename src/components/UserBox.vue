@@ -115,4 +115,14 @@ export default {
         display: none;
     }
 }
+
+@media (min-width: 601px) and (max-width: 840px) {
+    .headerBar .userBox {
+        width: 250px;
+    }
+
+    .headerBar .userBox .info .name {
+        width: 176px;
+    }
+}
 </style>

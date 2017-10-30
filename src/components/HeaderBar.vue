@@ -28,7 +28,7 @@ export default {
     height: 175px;
 }
 
-.headerBar img {
+.headerBar .logo {
     margin: 40px;
 }
 
@@ -37,8 +37,14 @@ export default {
         height: 94px;
     }
 
-    .headerBar img {
+    .headerBar .logo {
         margin: 32px 16px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 840px) {
+    .headerBar .logo {
+        width: 247px;
     }
 }
 </style>
