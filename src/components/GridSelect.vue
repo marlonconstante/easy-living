@@ -1,5 +1,5 @@
 <template>
-    <md-layout class="gridSelect" md-align="center">
+    <md-layout class="gridSelect">
         <div v-if="isLoading">
             <md-spinner :md-size="0" :md-stroke="1.5" md-indeterminate />
         </div>
@@ -40,14 +40,14 @@ export default {
 
 <style scoped>
 .gridSelect {
-    margin: 5px;
+    margin: 5px auto;
     padding: 70px 0 55px 0;
 }
 
 .gridSelect .gridSelectBox {
     display: grid;
     width: 100%;
-    max-width: 440px;
+    max-width: 450px;
 }
 
 .gridSelect .md-spinner {
@@ -61,9 +61,31 @@ export default {
         padding: 38px 0 8px 0;
     }
 
+    .gridSelect .gridSelectBox {
+        max-width: 584px;
+    }
+
     .gridSelect .md-spinner {
         width: 75px !important;
         height: 75px !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+    .gridSelect {
+        width: 450px;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1440px) {
+    .gridSelect {
+        width: 900px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .gridSelect {
+        width: 1350px;
     }
 }
 </style>
