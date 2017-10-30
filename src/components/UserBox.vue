@@ -98,7 +98,7 @@ export default {
 @media (max-width: 600px) {
     .userBox {
         width: 224px;
-        margin: 32px auto;
+        margin: 16px auto;
         text-align: center;
         font-size: 14px;
         line-height: 15px;

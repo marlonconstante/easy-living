@@ -42,13 +42,17 @@ export default {
 }
 
 @media (max-width: 600px) {
+    .infoBox {
+        margin: 20px;
+    }
+
     .infoBox .title {
         font-size: 32px;
         line-height: 35px;
     }
 
     .infoBox .message {
-        margin-top: 5px;
+        margin: 5px 20px;
         font-size: 16px;
         line-height: 17px;
     }
