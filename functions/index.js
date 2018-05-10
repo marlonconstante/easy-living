@@ -6,7 +6,10 @@ const gmailEmail = encodeURIComponent(functions.config().gmail.email)
 const gmailPassword = encodeURIComponent(functions.config().gmail.password)
 const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`)
 
-admin.initializeApp(functions.config().firebase)
+admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+    databaseURL: 'https://easy-living-deliveries.firebaseio.com'
+});
 
 const getUserInformation = (user) => {
     const information = []
@@ -42,9 +45,9 @@ const getInstructionInformation = (instruction) => {
     return information
 }
 
-exports.sendDeliveryEmail = functions.database.ref('/deliveries/{key}').onCreate(event => {
-    const { key } = event.params
-    const { uid, instruction, stores } = event.data.val()
+exports.sendDeliveryEmail = functions.database.ref('/deliveries/{key}').onCreate((snap, context) => {
+    const { key } = context.params
+    const { uid, instruction, stores } = snap.val()
 
     return Promise.all([
         admin.auth().getUser(uid),
